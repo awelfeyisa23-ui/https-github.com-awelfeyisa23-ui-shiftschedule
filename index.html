@@ -755,7 +755,7 @@
             const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
 
             if (diffDays < 0) {
-                return { code: 'PRE', name: 'ከዑደት በፊት', color: 'bg-slate-100 text-slate-500 border-slate-300' };
+                return { code: 'PRE', name: 'Pre-Cycle (ከዑደት በፊት)', shortName: 'Pre-Cycle', color: 'bg-slate-100 text-slate-500 border-slate-300' };
             }
 
             const cycleIndex = diffDays % 28;
@@ -763,11 +763,11 @@
             const shiftCode = pattern[cycleIndex];
 
             switch(shiftCode) {
-                case 'M': return { code: 'M', name: 'ጠዋት (Morning)', shortName: 'ጠዋት', color: 'bg-gradient-to-r from-amber-300 to-yellow-400 text-amber-950 border-amber-400 shadow-md font-black' };
-                case 'E': return { code: 'E', name: 'ቀን/ማታ (Evening)', shortName: 'ቀን/ማታ', color: 'bg-gradient-to-r from-sky-300 to-blue-400 text-sky-950 border-sky-400 shadow-md font-black' };
-                case 'N': return { code: 'N', name: 'ለሊት (Night)', shortName: 'ለሊት', color: 'bg-gradient-to-r from-slate-900 to-indigo-950 text-amber-300 border-slate-700 shadow-md font-black' };
-                case 'O': return { code: 'O', name: 'እረፍት (Day Off)', shortName: 'እረፍት', color: 'bg-gradient-to-r from-emerald-300 to-teal-400 text-emerald-950 border-emerald-400 shadow-md font-black' };
-                default: return { code: 'O', name: 'እረፍት', shortName: 'እረፍት', color: 'bg-slate-100 text-slate-600 border-slate-200' };
+                case 'M': return { code: 'M', name: 'Morning (ጠዋት)', shortName: 'Morning (ጠዋት)', color: 'bg-gradient-to-r from-amber-300 to-yellow-400 text-amber-950 border-amber-400 shadow-md font-black' };
+                case 'E': return { code: 'E', name: 'Evening (ቀን-ማታ)', shortName: 'Evening (ቀን-ማታ)', color: 'bg-gradient-to-r from-sky-300 to-blue-400 text-sky-950 border-sky-400 shadow-md font-black' };
+                case 'N': return { code: 'N', name: 'Night (ለሊት)', shortName: 'Night (ለሊት)', color: 'bg-gradient-to-r from-slate-900 to-indigo-950 text-amber-300 border-slate-700 shadow-md font-black' };
+                case 'O': return { code: 'O', name: 'Day Off (እረፍት)', shortName: 'Day Off (እረፍት)', color: 'bg-gradient-to-r from-emerald-300 to-teal-400 text-emerald-950 border-emerald-400 shadow-md font-black' };
+                default: return { code: 'O', name: 'Day Off (እረፍት)', shortName: 'Day Off (እረፍት)', color: 'bg-slate-100 text-slate-600 border-slate-200' };
             }
         }
 
