@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Shift Management System</title>
-    <meta property="og:title" content="Shift Management System" />
-    <meta property="og:description" content="Shift Management System - Professional Roster Portal" />
-    <meta property="og:url" content="https://shiftschedulemgt.vercel.app" />
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@300;400;500;700;900&display=swap" rel="stylesheet">
@@ -167,10 +164,10 @@
                         <span class="text-[10px] sm:text-xs font-black text-slate-800 whitespace-nowrap pl-1"><i class="fa-solid fa-filter text-amber-600"></i> ማጣሪያ:</span>
                         <select id="matrixDivisionFilter" onchange="renderMatrix()" class="px-3 py-2 bg-white border border-amber-200 rounded-xl text-[10px] sm:text-xs font-black text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 shadow-sm cursor-pointer">
                             <option value="all">ሁሉም ዲቪዥኖች</option>
-                            <option value="1">ዲቪዥን አንድ</option>
-                            <option value="2">ዲቪዥን ሁለት</option>
-                            <option value="3">ዲቪዥን ሶስት</option>
-                            <option value="4">ዲቪዥን አራት</option>
+                            <option value="1">ዲቪዥን 1</option>
+                            <option value="2">ዲቪዥን 2</option>
+                            <option value="3">ዲቪዥን 3</option>
+                            <option value="4">ዲቪዥን 4</option>
                         </select>
                     </div>
                 </div>
@@ -306,32 +303,6 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-5 relative z-10 max-w-4xl mx-auto">
                         
-                        <div class="p-5 rounded-[24px] shadow-xl border border-teal-300/80 backdrop-blur-2xl transition-all hover:scale-[1.01]" style="background: linear-gradient(135deg, rgba(204, 251, 241, 0.85) 0%, rgba(255, 255, 255, 0.9) 100%);">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-400 to-emerald-500 text-white flex items-center justify-center shadow-lg shadow-teal-500/30 text-xs font-bold border border-white">
-                                    <i class="fa-solid fa-user-gear"></i>
-                                </div>
-                                <div>
-                                    <h3 class="text-xs sm:text-sm font-black text-slate-900 uppercase tracking-wide">የዲቨሎፐር ፎቶ መቀየሪያ</h3>
-                                    <p class="text-[9px] sm:text-[10px] text-slate-600 font-bold">የዲቨሎፐር ምስል ጫን (Upload / URL)</p>
-                                </div>
-                            </div>
-
-                            <div class="space-y-3">
-                                <div class="space-y-1">
-                                    <label class="block text-[10px] sm:text-xs font-black text-slate-800">የዲቨሎፐር ፎቶ ይምረጡ (Upload File):</label>
-                                    <input type="file" id="devPhotoFileInput" accept="image/*" onchange="handleDevPhotoFileUpload(event)" class="w-full text-xs text-slate-700 file:mr-3 file:py-2 file:px-3 file:rounded-lg file:border-0 file:text-[10px] file:font-black file:bg-teal-400 file:text-slate-950 hover:file:bg-teal-300 cursor-pointer bg-white/90 p-1.5 rounded-xl border border-teal-200 shadow-inner">
-                                </div>
-                                <div class="space-y-1">
-                                    <label class="block text-[10px] sm:text-xs font-black text-slate-800">ወይም የፎቶ ሊንክ (Image URL):</label>
-                                    <div class="flex gap-2">
-                                        <input type="url" id="settingDevPhotoUrl" placeholder="https://..." class="w-full px-3 py-2 bg-white/90 border border-teal-200 rounded-xl text-[10px] font-black text-slate-900 shadow-inner focus:outline-none focus:ring-2 focus:ring-teal-500">
-                                        <button onclick="saveDevPhotoUrlSetting()" class="px-3.5 py-2 bg-teal-500 hover:bg-teal-400 text-white font-black text-xs rounded-xl shadow">ቀይር</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                         <div class="p-5 rounded-[24px] shadow-xl border border-sky-300/80 backdrop-blur-2xl transition-all hover:scale-[1.005]" style="background: linear-gradient(135deg, rgba(224, 242, 254, 0.9) 0%, rgba(204, 251, 241, 0.85) 100%);">
                             <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-4">
                                 <div class="flex items-center gap-3">
@@ -359,6 +330,40 @@
                             </div>
                         </div>
 
+                        <div class="p-5 rounded-[24px] shadow-xl border border-indigo-300/80 backdrop-blur-2xl transition-all hover:scale-[1.005]" style="background: linear-gradient(135deg, rgba(238, 242, 255, 0.9) 0%, rgba(224, 242, 254, 0.85) 100%);">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-500 to-indigo-600 text-white flex items-center justify-center shadow-lg shadow-teal-500/30 text-xs font-bold border border-white">
+                                    <i class="fa-solid fa-user-shield"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xs sm:text-sm font-black text-slate-900 uppercase tracking-wide">የዲቨሎፐር ፎቶ እና ሚስጥራዊ ቁጥር ማስተካከያ</h3>
+                                    <p class="text-[9px] sm:text-[10px] text-slate-600 font-bold">ፎቶ እና የይለፍ ቃላት ማስተካከያ (Unified Settings)</p>
+                                </div>
+                            </div>
+
+                            <form onsubmit="updateDeveloperAndPasswords(event)" class="space-y-3">
+                                <div class="space-y-1">
+                                    <label class="block text-[10px] sm:text-xs font-black text-slate-800">የዲቨሎፐር ፎቶ ይምረጡ (File):</label>
+                                    <input type="file" id="devPhotoFileInput" accept="image/*" onchange="handleDevPhotoFileUpload(event)" class="w-full text-xs text-slate-700 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-[10px] file:font-black file:bg-teal-400 file:text-slate-950 hover:file:bg-teal-300 cursor-pointer bg-white/90 p-1 rounded-xl border border-teal-200 shadow-inner">
+                                </div>
+                                <div class="space-y-1">
+                                    <label class="block text-[10px] sm:text-xs font-black text-slate-800">ወይም የፎቶ ሊንክ (Image URL):</label>
+                                    <input type="url" id="settingDevPhotoUrl" placeholder="https://..." class="w-full px-3 py-2 bg-white/90 border border-teal-200 rounded-xl text-[10px] font-black text-slate-900 shadow-inner focus:outline-none focus:ring-2 focus:ring-teal-500">
+                                </div>
+                                <div class="space-y-1">
+                                    <label class="block text-[10px] sm:text-xs font-black text-slate-800">አዲስ የአስተዳዳሪ Password:</label>
+                                    <input type="password" id="settingAdminPass" placeholder="አስተዳዳሪ አዲስ password..." class="w-full px-3 py-2 bg-white/90 border border-indigo-200 rounded-xl text-[10px] sm:text-xs font-black text-slate-900 shadow-inner focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                                </div>
+                                <div class="space-y-1">
+                                    <label class="block text-[10px] sm:text-xs font-black text-slate-800">አዲስ መግቢያ Password (Site Access):</label>
+                                    <input type="text" id="settingSitePass" placeholder="ድህረ ገጹን ሲከፍቱ የሚጠይቀው password..." class="w-full px-3 py-2 bg-white/90 border border-sky-200 rounded-xl text-[10px] sm:text-xs font-black text-slate-900 shadow-inner focus:outline-none focus:ring-2 focus:ring-sky-500">
+                                </div>
+                                <button type="submit" class="w-full py-3 bg-gradient-to-r from-teal-600 via-blue-600 to-indigo-700 hover:from-teal-500 hover:to-indigo-600 text-white font-black text-xs rounded-xl shadow-xl shadow-indigo-600/30 transition transform active:scale-95 flex items-center justify-center gap-2 border border-white/40">
+                                    <i class="fa-solid fa-floppy-disk"></i> ሁሉንም መረጃዎች አዘምን
+                                </button>
+                            </form>
+                        </div>
+
                         <div class="p-5 rounded-[24px] shadow-xl border border-amber-300/80 backdrop-blur-2xl md:col-span-2 transition-all hover:scale-[1.005]" style="background: linear-gradient(135deg, rgba(254, 243, 199, 0.9) 0%, rgba(224, 242, 254, 0.85) 100%);">
                             <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-4">
                                 <div class="flex items-center gap-3">
@@ -367,7 +372,7 @@
                                     </div>
                                     <div>
                                         <h3 class="text-xs sm:text-sm font-black text-slate-900 uppercase tracking-wide">የፈረቃ ማስተካከያ (Shift Pattern Adjustment)</h3>
-                                        <p class="text-[9px] sm:text-[10px] text-slate-600 font-bold">የ28 ቀናትን ፈረቃ ለእያንዳንዱ ዲቪዥን መቀየሪያ</p>
+                                        <p class="text-[9px] sm:text-[10px] text-slate-600 font-bold">የ28 ቀናትን ፈረቃ ለእያንዳንዱ ዲቪዥን ሙሉ ስማቸው መቀየሪያ</p>
                                     </div>
                                 </div>
                                 <div class="flex items-center gap-2">
@@ -381,45 +386,13 @@
                             </div>
 
                             <div class="bg-white/90 rounded-xl border border-amber-200 p-3 shadow-inner space-y-3">
-                                <p class="text-[10px] font-bold text-slate-700">ከዚህ በታች ያሉትን 28 ቀናት ፈረቃ በቀላሉ መቀየር ይችላሉ (<span class="font-extrabold text-amber-900">M=ጠዋት, E=ቀን/ማታ, N=ለሊት, O=እረፍት</span>):</p>
-                                <div id="adminPatternGrid" class="grid grid-cols-4 sm:grid-cols-7 gap-2">
+                                <p class="text-[10px] font-bold text-slate-700">ከዚህ በታች ያሉትን 28 ቀናት ፈረቃ በሙሉ ስማቸው መምረጥ ይችላሉ:</p>
+                                <div id="adminPatternGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
                                 </div>
                                 <button onclick="saveDivisionPattern()" class="w-full py-2.5 bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-400 hover:to-yellow-500 text-slate-950 font-black text-xs rounded-xl shadow-md transition flex items-center justify-center gap-2 border border-white/40">
                                     <i class="fa-solid fa-floppy-disk"></i> የዚህን ዲቪዥን ፈረቃ ዑደት አዘምን
                                 </button>
                             </div>
-                        </div>
-
-                        <div class="p-5 rounded-[24px] shadow-xl border border-indigo-300/80 backdrop-blur-2xl md:col-span-2 transition-all hover:scale-[1.005]" style="background: linear-gradient(135deg, rgba(238, 242, 255, 0.9) 0%, rgba(224, 242, 254, 0.85) 100%);">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-blue-600 text-white flex items-center justify-center shadow-lg shadow-indigo-500/30 text-xs font-bold border border-white">
-                                    <i class="fa-solid fa-key"></i>
-                                </div>
-                                <div>
-                                    <h3 class="text-xs sm:text-sm font-black text-slate-900 uppercase tracking-wide">ሚስጥራዊ ቁጥር ማስተካከያ</h3>
-                                    <p class="text-[9px] sm:text-[10px] text-slate-600 font-bold">የጣቢያ መግቢያ እና የአስተዳዳሪ የይለፍ ቃል መቀየሪያ</p>
-                                </div>
-                            </div>
-
-                            <form onsubmit="updatePasswordSettings(event)" class="space-y-3">
-                                <div class="space-y-1">
-                                    <label class="block text-[10px] sm:text-xs font-black text-slate-800">አዲስ የአስተዳዳሪ Password:</label>
-                                    <div class="relative">
-                                        <i class="fa-solid fa-shield-halved absolute left-4 top-3 text-indigo-600 text-xs"></i>
-                                        <input type="password" id="settingAdminPass" placeholder="አስተዳዳሪ አዲስ password..." class="w-full pl-10 pr-4 py-2.5 bg-white/90 border border-indigo-200 rounded-xl text-[10px] sm:text-xs font-black text-slate-900 shadow-inner focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                                    </div>
-                                </div>
-                                <div class="space-y-1">
-                                    <label class="block text-[10px] sm:text-xs font-black text-slate-800">አዲስ መግቢያ Password (Site Access):</label>
-                                    <div class="relative">
-                                        <i class="fa-solid fa-lock absolute left-4 top-3 text-sky-600 text-xs"></i>
-                                        <input type="text" id="settingSitePass" placeholder="ድህረ ገጹን ሲከፍቱ የሚጠይቀው password..." class="w-full pl-10 pr-4 py-2.5 bg-white/90 border border-sky-200 rounded-xl text-[10px] sm:text-xs font-black text-slate-900 shadow-inner focus:outline-none focus:ring-2 focus:ring-sky-500">
-                                    </div>
-                                </div>
-                                <button type="submit" class="w-full py-3 bg-gradient-to-r from-indigo-600 via-blue-600 to-indigo-700 hover:from-indigo-500 hover:to-blue-600 text-white font-black text-xs rounded-xl shadow-xl shadow-indigo-600/30 transition transform active:scale-95 flex items-center justify-center gap-2 border border-white/40">
-                                    <i class="fa-solid fa-floppy-disk"></i> ሚስጥራዊ ቁጥሮች አዘምን
-                                </button>
-                            </form>
                         </div>
 
                     </div>
@@ -559,6 +532,9 @@
 
             const devUrlInput = document.getElementById('settingDevPhotoUrl');
             if (devUrlInput) devUrlInput.value = systemSettings.directorPhoto;
+
+            const adminPassInput = document.getElementById('settingAdminPass');
+            if (adminPassInput) adminPassInput.value = systemSettings.adminPass;
 
             const sitePassInput = document.getElementById('settingSitePass');
             if (sitePassInput) sitePassInput.value = systemSettings.sitePass;
@@ -810,7 +786,7 @@
 
             let html = `<thead><tr class="bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-white text-[9px] sm:text-[11px] uppercase font-black tracking-wider">
                 <th class="px-2.5 py-3.5 text-center w-14 border-r border-white/10 text-cyan-400">ዑደት</th>
-                <th class="px-3.5 py-3.5 text-left border-r border-white/10 text-amber-300">የእለት ቀን</th>`;
+                <th class="px-3.5 py-3.5 text-left border-r border-white/10 text-amber-300">የእለቱ ቀን</th>`;
             
             divisionsToShow.forEach(divNum => {
                 let divTextColor = "text-white";
@@ -821,7 +797,7 @@
 
                 html += `<th class="px-2.5 py-3.5 text-center border-r border-white/10 last:border-r-0 ${divTextColor}">ዲቪዥን ${divNum}</th>`;
             });
-            html += `</tr></thead><tbody class="divide-y divide-slate-200/80 text-[9px] sm:text-[11px] font-bold">`;
+            html += `</tr></thead><tbody class="divide-y divide-slate-200/80 text-[9px] sm:text-[11px]">`;
 
             for (let i = 0; i < 28; i++) {
                 const d = new Date(SHIFT_START_DATE);
@@ -830,8 +806,8 @@
                 const cycleNum = i + 1;
 
                 html += `<tr class="bg-white/90 hover:bg-white transition-all duration-200">
-                    <td class="px-2.5 py-2.5 text-center font-black text-cyan-700 bg-cyan-50/70 border-r border-slate-200/80 shadow-sm">${cycleNum}</td>
-                    <td class="px-3.5 py-2.5 text-amber-800 font-extrabold whitespace-nowrap border-r border-slate-200/80 bg-amber-50/30">${ethWeekday}</td>`;
+                    <td class="px-2.5 py-2.5 text-center font-normal text-cyan-500 bg-slate-900/5 border-r border-slate-200/80 shadow-sm">${cycleNum}</td>
+                    <td class="px-3.5 py-2.5 text-slate-700 bg-slate-900/5 font-normal whitespace-nowrap border-r border-slate-200/80">${ethWeekday}</td>`;
 
                 divisionsToShow.forEach(divNum => {
                     const shift = getShiftForDate(divNum, d);
@@ -968,13 +944,13 @@
             let html = '';
             for(let i=0; i<28; i++) {
                 html += `
-                    <div class="flex flex-col items-center bg-white p-1.5 rounded-xl border border-amber-200 shadow-sm">
-                        <span class="text-[8px] font-black text-slate-500 mb-1">ቀን ${i+1}</span>
-                        <select id="pattern_day_${i}" class="w-full text-center py-1 bg-amber-50 border border-amber-300 rounded-lg text-[10px] font-black text-amber-950 focus:outline-none focus:ring-2 focus:ring-amber-500">
-                            <option value="M" ${pattern[i] === 'M' ? 'selected' : ''}>M</option>
-                            <option value="E" ${pattern[i] === 'E' ? 'selected' : ''}>E</option>
-                            <option value="N" ${pattern[i] === 'N' ? 'selected' : ''}>N</option>
-                            <option value="O" ${pattern[i] === 'O' ? 'selected' : ''}>O</option>
+                    <div class="flex flex-col bg-white p-2.5 rounded-xl border border-amber-200 shadow-sm gap-1.5">
+                        <span class="text-[9px] font-black text-slate-700">ቀን ${i+1} (Day ${i+1})</span>
+                        <select id="pattern_day_${i}" class="w-full px-2 py-1.5 bg-amber-50 border border-amber-300 rounded-lg text-[10px] font-black text-amber-950 focus:outline-none focus:ring-2 focus:ring-amber-500 cursor-pointer">
+                            <option value="M" ${pattern[i] === 'M' ? 'selected' : ''}>Morning (ጠዋት)</option>
+                            <option value="E" ${pattern[i] === 'E' ? 'selected' : ''}>Evening (ቀን-ማታ)</option>
+                            <option value="N" ${pattern[i] === 'N' ? 'selected' : ''}>Night (ለሊት)</option>
+                            <option value="O" ${pattern[i] === 'O' ? 'selected' : ''}>Day Off (እረፍት)</option>
                         </select>
                     </div>
                 `;
@@ -1016,30 +992,29 @@
             const reader = new FileReader();
             reader.onload = function(evt) {
                 systemSettings.directorPhoto = evt.target.result;
-                localStorage.setItem('shift_system_settings', JSON.stringify(systemSettings));
-                updateImagesOnUI();
-                showMsgBox("የዲቨሎፐር ፎቶ በተሳካ ሁኔታ ተቀይሯል!");
             };
             reader.readAsDataURL(file);
         }
 
-        function saveDevPhotoUrlSetting() {
-            const urlInput = document.getElementById('settingDevPhotoUrl');
-            if (!urlInput || !urlInput.value) return;
-            systemSettings.directorPhoto = urlInput.value.trim();
-            localStorage.setItem('shift_system_settings', JSON.stringify(systemSettings));
-            updateImagesOnUI();
-            showMsgBox("የዲቨሎፐር ፎቶ ሊንክ ተዘምኗል!");
-        }
-
-        function updatePasswordSettings(e) {
+        function updateDeveloperAndPasswords(e) {
             e.preventDefault();
+            const urlInput = document.getElementById('settingDevPhotoUrl');
             const apEl = document.getElementById('settingAdminPass');
             const spEl = document.getElementById('settingSitePass');
-            if(apEl && apEl.value) systemSettings.adminPass = apEl.value;
-            if(spEl && spEl.value) systemSettings.sitePass = spEl.value;
+
+            if (urlInput && urlInput.value.trim() !== '') {
+                systemSettings.directorPhoto = urlInput.value.trim();
+            }
+            if (apEl && apEl.value.trim() !== '') {
+                systemSettings.adminPass = apEl.value.trim();
+            }
+            if (spEl && spEl.value.trim() !== '') {
+                systemSettings.sitePass = spEl.value.trim();
+            }
+
             localStorage.setItem('shift_system_settings', JSON.stringify(systemSettings));
-            showMsgBox("ሚስጥራዊ ቁጥሮች በተሳካ ሁኔታ ተዘምነዋል!");
+            updateImagesOnUI();
+            showMsgBox("የዲቨሎፐር ፎቶ እና ሚስጥራዊ ቁጥሮች በተሳካ ሁኔታ ተዘምነዋል!");
         }
 
         function showMsgBox(text, type = "success") {
