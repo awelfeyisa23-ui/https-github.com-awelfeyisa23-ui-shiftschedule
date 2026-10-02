@@ -809,11 +809,17 @@
             let divisionsToShow = filterDiv === 'all' ? [1, 2, 3, 4] : [parseInt(filterDiv)];
 
             let html = `<thead><tr class="bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-white text-[9px] sm:text-[11px] uppercase font-black tracking-wider">
-                <th class="px-2.5 py-3.5 text-center w-14 border-r border-white/10">ዑደት</th>
-                <th class="px-3.5 py-3.5 text-left border-r border-white/10">የእለት ቀን</th>`;
+                <th class="px-2.5 py-3.5 text-center w-14 border-r border-white/10 text-cyan-400">ዑደት</th>
+                <th class="px-3.5 py-3.5 text-left border-r border-white/10 text-amber-300">የእለት ቀን</th>`;
             
             divisionsToShow.forEach(divNum => {
-                html += `<th class="px-2.5 py-3.5 text-center border-r border-white/10 last:border-r-0">ዲቪዥን ${divNum}</th>`;
+                let divTextColor = "text-white";
+                if(divNum === 1) divTextColor = "text-amber-400";
+                else if(divNum === 2) divTextColor = "text-sky-400";
+                else if(divNum === 3) divTextColor = "text-fuchsia-400";
+                else if(divNum === 4) divTextColor = "text-emerald-400";
+
+                html += `<th class="px-2.5 py-3.5 text-center border-r border-white/10 last:border-r-0 ${divTextColor}">ዲቪዥን ${divNum}</th>`;
             });
             html += `</tr></thead><tbody class="divide-y divide-slate-200/80 text-[9px] sm:text-[11px] font-bold">`;
 
@@ -824,8 +830,8 @@
                 const cycleNum = i + 1;
 
                 html += `<tr class="bg-white/90 hover:bg-white transition-all duration-200">
-                    <td class="px-2.5 py-2.5 text-center font-black text-slate-900 bg-slate-100/80 border-r border-slate-200/80 shadow-sm">${cycleNum}</td>
-                    <td class="px-3.5 py-2.5 text-slate-900 font-extrabold whitespace-nowrap border-r border-slate-200/80">${ethWeekday}</td>`;
+                    <td class="px-2.5 py-2.5 text-center font-black text-cyan-700 bg-cyan-50/70 border-r border-slate-200/80 shadow-sm">${cycleNum}</td>
+                    <td class="px-3.5 py-2.5 text-amber-800 font-extrabold whitespace-nowrap border-r border-slate-200/80 bg-amber-50/30">${ethWeekday}</td>`;
 
                 divisionsToShow.forEach(divNum => {
                     const shift = getShiftForDate(divNum, d);
