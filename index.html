@@ -98,9 +98,8 @@
                     <span class="text-[10px] font-black uppercase tracking-wider hidden sm:inline">Admin</span>
                 </button>
 
-                <div onclick="openDeveloperModal()" title="System Developer: Awel Feyisa" class="flex items-center gap-2 px-2.5 py-1 rounded-xl bg-white/10 hover:bg-white/20 border border-teal-400/40 cursor-pointer transition shadow-sm">
-                    <img id="directorPhoto" src="https://pbs.twimg.com/profile_images/2105866869236211712/Vn_SwaVg_400x400.jpg" alt="Awel" class="w-7 h-7 rounded-lg object-cover border-2 border-teal-300 shadow-sm">
-                    <span class="text-[11px] font-black text-teal-300 hidden sm:inline">Awel Feyisa</span>
+                <div onclick="openDeveloperModal()" title="System Developer: Awel Feyisa" class="w-9 h-9 rounded-xl overflow-hidden p-0.5 bg-gradient-to-br from-teal-400 to-sky-500 shadow-md cursor-pointer hover:scale-105 transition">
+                    <img id="directorPhoto" src="https://pbs.twimg.com/profile_images/2105866869236211712/Vn_SwaVg_400x400.jpg" alt="Awel" class="w-full h-full rounded-lg object-cover shadow-inner">
                 </div>
             </div>
 
@@ -182,28 +181,28 @@
                     <div class="w-9 h-9 rounded-xl bg-white/90 text-amber-950 flex items-center justify-center font-black text-xs shadow-md shrink-0 border border-amber-500"><i class="fa-solid fa-sun"></i></div>
                     <div class="min-w-0">
                         <div class="text-[8px] uppercase font-black text-amber-900 tracking-wider">Morning (ጠዋት)</div>
-                        <div class="text-[9px] sm:text-[10px] font-black text-amber-950 truncate">11:30 - 07:30</div>
+                        <div class="text-[9px] sm:text-[10px] font-black text-amber-950 truncate">11:30 - 07:30 (05:30 - 01:30)</div>
                     </div>
                 </div>
                 <div class="relative overflow-hidden p-3.5 rounded-2xl flex items-center gap-3 border border-sky-400 bg-gradient-to-r from-sky-300 to-blue-400 text-sky-950 shadow-lg">
                     <div class="w-9 h-9 rounded-xl bg-white/90 text-sky-950 flex items-center justify-center font-black text-xs shadow-md shrink-0 border border-sky-500"><i class="fa-solid fa-moon"></i></div>
                     <div class="min-w-0">
                         <div class="text-[8px] uppercase font-black text-sky-900 tracking-wider">Evening (ቀን-ማታ)</div>
-                        <div class="text-[9px] sm:text-[10px] font-black text-sky-950 truncate">7:30 - 3:30</div>
+                        <div class="text-[9px] sm:text-[10px] font-black text-sky-950 truncate">7:30 - 3:30 (01:30 - 9:30)</div>
                     </div>
                 </div>
                 <div class="relative overflow-hidden p-3.5 rounded-2xl flex items-center gap-3 border border-slate-700 bg-gradient-to-r from-slate-900 to-indigo-950 text-amber-300 shadow-lg">
                     <div class="w-9 h-9 rounded-xl bg-slate-800 text-amber-300 flex items-center justify-center font-black text-xs shadow-md shrink-0 border border-slate-700"><i class="fa-solid fa-star"></i></div>
                     <div class="min-w-0">
                         <div class="text-[8px] uppercase font-black text-slate-300 tracking-wider">Night (ለሊት)</div>
-                        <div class="text-[9px] sm:text-[10px] font-black text-amber-300 truncate">3:30 - 11:30</div>
+                        <div class="text-[9px] sm:text-[10px] font-black text-amber-300 truncate">3:30 - 11:30 (9:30 - 05:30)</div>
                     </div>
                 </div>
                 <div class="relative overflow-hidden p-3.5 rounded-2xl flex items-center gap-3 border border-emerald-400 bg-gradient-to-r from-emerald-300 to-teal-400 text-emerald-950 shadow-lg">
                     <div class="w-9 h-9 rounded-xl bg-white/90 text-emerald-950 flex items-center justify-center font-black text-xs shadow-md shrink-0 border border-emerald-500"><i class="fa-solid fa-mug-hot"></i></div>
                     <div class="min-w-0">
                         <div class="text-[8px] uppercase font-black text-emerald-900 tracking-wider">Day Off (እረፍት)</div>
-                        <div class="text-[9px] sm:text-[10px] font-black text-emerald-950 truncate">24 hours</div>
+                        <div class="text-[9px] sm:text-[10px] font-black text-emerald-950 truncate">24 hours (ሙሉ ቀን እረፍት)</div>
                     </div>
                 </div>
             </div>
@@ -229,8 +228,8 @@
                             <div class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[8px] font-black bg-sky-500/15 text-sky-950 border border-sky-400/30 mb-0.5">
                                 <i class="fa-solid fa-bolt text-sky-700"></i> የፈረቃ ፍለጋ
                             </div>
-                            <h2 class="text-base sm:text-lg font-black tracking-tight text-indigo-950">የፈረቃ ቀን እና ዲቪዥን ማረጋገጫ</h2>
-                            <p class="text-[9px] sm:text-[10px] text-indigo-900/80 font-bold mt-0.5">የተወሰነ ቀን በመምረጥ የትኛው ዲቪዥን የትኛውን ፈረቃ እንደሚሰራ ይመለከቱ።</p>
+                            <h2 class="text-base sm:text-lg font-black tracking-tight text-indigo-950">የፈረቃ ቀን ማረጋገጫ</h2>
+                            <p class="text-[9px] sm:text-[10px] text-indigo-900/80 font-bold mt-0.5">የፈለጉትን ቀን በመምረጥ የትኛው ዲቪዥን የትኛውን ፈረቃ እንደሚሰራ ይመለከቱ።</p>
                         </div>
                     </div>
 
@@ -341,7 +340,7 @@
                                     </div>
                                     <div>
                                         <h3 class="text-xs sm:text-sm font-black text-slate-900 uppercase tracking-wide">የኦንላይን ተጠቃሚዎች ክትትል</h3>
-                                        <p class="text-[9px] sm:text-[10px] text-slate-600 font-bold">በአሁኑ ሰዓት ድህረ ገጹን እየተጠቀሙ ያሉ ሰዎች</p>
+                                        <p class="text-[9px] sm:text-[10px] text-slate-600 font-bold">በአሁኑ ሰዓት ድህረ ገጹን እየተጠቀሙ ያሉ ሰዎች (24 ሰዓት)</p>
                                     </div>
                                 </div>
                                 <button onclick="refreshOnlineUsers()" class="px-3 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-black text-[10px] rounded-xl shadow transition flex items-center gap-1.5 active:scale-95 border border-white/40">
@@ -373,10 +372,10 @@
                                 </div>
                                 <div class="flex items-center gap-2">
                                     <select id="adminDivSelect" onchange="loadDivisionPatternEditor()" class="px-3 py-1.5 bg-white border border-amber-300 rounded-xl text-xs font-black text-slate-900 shadow-sm cursor-pointer">
-                                        <option value="1">ዲቪዥን አንድ</option>
-                                        <option value="2">ዲቪዥን ሁለት</option>
-                                        <option value="3">ዲቪዥን ሶስት</option>
-                                        <option value="4">ዲቪዥን አራት</option>
+                                        <option value="1">ዲቪዥን 1</option>
+                                        <option value="2">ዲቪዥን 2</option>
+                                        <option value="3">ዲቪዥን 3</option>
+                                        <option value="4">ዲቪዥን 4</option>
                                     </select>
                                 </div>
                             </div>
@@ -446,7 +445,7 @@
             <div class="relative z-10 flex items-center justify-between mb-3">
                 <div class="w-6"></div>
                 <div class="inline-flex items-center justify-center gap-1.5 px-3.5 py-1 rounded-full text-[9px] font-black bg-gradient-to-r from-sky-600 to-teal-600 text-white shadow-md shadow-sky-500/20 border border-white/50 mx-auto">
-                    <i class="fa-solid fa-code text-teal-200 text-[9px]"></i> LEAD CREATOR
+                    <i class="fa-solid fa-code text-teal-200 text-[9px]"></i> SYSTEM DEVELOPER
                 </div>
                 <button onclick="closeDeveloperModal()" class="text-slate-500 hover:text-slate-950 w-7 h-7 rounded-full bg-white/90 hover:bg-white flex items-center justify-center font-bold text-xs transition shadow-md border border-sky-200 shrink-0 active:scale-95">
                     <i class="fa-solid fa-xmark"></i>
@@ -463,7 +462,7 @@
                 <div class="p-3 rounded-2xl backdrop-blur-2xl border border-sky-300/80 shadow-xl relative overflow-hidden" style="background: linear-gradient(135deg, rgba(224, 242, 254, 0.95) 0%, rgba(204, 251, 241, 0.9) 100%);">
                     <div class="absolute -left-6 -top-6 w-16 h-16 bg-sky-400/20 rounded-full blur-xl pointer-events-none"></div>
                     <h3 class="text-xs sm:text-sm font-black text-sky-950 tracking-tight">AWEL FEYISA MILKESO</h3>
-                    <p class="text-[7px] font-black text-teal-900 tracking-wider uppercase bg-white/90 px-3 py-1 rounded-full border border-teal-300/70 shadow-inner mt-1.5 inline-block">SYSTEM LEAD DEVELOPER & CREATOR</p>
+                    <p class="text-[7px] font-black text-teal-900 tracking-wider uppercase bg-white/90 px-3 py-1 rounded-full border border-teal-300/70 shadow-inner mt-1.5 inline-block">SYSTEM LEAD DEVELOPER</p>
                 </div>
 
                 <div class="space-y-2 pt-0.5">
@@ -776,11 +775,14 @@
             }
             
             const months = ['', 'መስከረም', 'ጥቅምት', 'ህዳር', 'ታህሳስ', 'ጥር', 'የካቲት', 'መጋቢት', 'ሚያዚያ', 'ግንቦት', 'ሰኔ', 'ሀምሌ', 'ነሀሴ', 'ጳጉሜ'];
-            return `${months[ethMonth] || 'ጥቅምት'} ${ethDay}, ${ethYear}`;
+            const weekdays = ['እሑድ', 'ሰኞ', 'ማክሰኞ', 'ረቡዕ', 'ሐሙስ', 'አርብ', 'ቅዳሜ'];
+            const dayOfWeek = weekdays[date.getDay()];
+            return `${dayOfWeek} - ${months[ethMonth] || 'ጥቅምት'} ${ethDay}, ${ethYear}`;
         }
 
-        function getGregorianDateString(date) {
-            return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        function getEthiopianWeekdayEthName(date) {
+            const weekdaysEth = ['እሑድ', 'ሰኞ', 'ማክሰኞ', 'ረቡዕ', 'ሐሙስ', 'አርብ', 'ቅዳሜ'];
+            return weekdaysEth[date.getDay()];
         }
 
         function getShiftForDate(divisionNum, targetDate) {
@@ -792,10 +794,10 @@
             const patternIndex = diffDays >= 0 ? diffDays % 28 : (28 - (Math.abs(diffDays) % 28)) % 28;
             const code = pattern[patternIndex];
 
-            if (code === 'M') return { code: 'M', name: 'Morning (ጠዋት)', shortName: 'Morning (ጠዋት)', color: 'bg-amber-100 text-amber-950 border-amber-300' };
-            if (code === 'E') return { code: 'E', name: 'Evening (ቀን-ማታ)', shortName: 'Evening (ቀን-ማታ)', color: 'bg-sky-100 text-sky-950 border-sky-300' };
-            if (code === 'N') return { code: 'N', name: 'Night (ለሊት)', shortName: 'Night (ለሊት)', color: 'bg-slate-900 text-amber-300 border-slate-700' };
-            return { code: 'O', name: 'Day Off (እረፍት)', shortName: 'Day Off (እረፍት)', color: 'bg-emerald-100 text-emerald-950 border-emerald-300' };
+            if (code === 'M') return { code: 'M', name: 'Morning (ጠዋት)', shortName: 'Morning (ጠዋት)', color: 'bg-gradient-to-r from-amber-300 to-yellow-400 text-amber-950 border-amber-400 font-black shadow-md' };
+            if (code === 'E') return { code: 'E', name: 'Evening (ቀን-ማታ)', shortName: 'Evening (ቀን-ማታ)', color: 'bg-gradient-to-r from-sky-300 to-blue-400 text-sky-950 border-sky-400 font-black shadow-md' };
+            if (code === 'N') return { code: 'N', name: 'Night (ለሊት)', shortName: 'Night (ለሊት)', color: 'bg-gradient-to-r from-slate-900 to-indigo-950 text-amber-300 border-slate-700 font-black shadow-md' };
+            return { code: 'O', name: 'Day Off (እረፍት)', shortName: 'Day Off (እረፍት)', color: 'bg-gradient-to-r from-emerald-300 to-teal-400 text-emerald-950 border-emerald-400 font-black shadow-md' };
         }
 
         function renderMatrix() {
@@ -806,42 +808,29 @@
             
             let divisionsToShow = filterDiv === 'all' ? [1, 2, 3, 4] : [parseInt(filterDiv)];
 
-            let html = `<thead><tr class="bg-gradient-to-r from-slate-900 via-sky-950 to-slate-900 text-white text-[9px] sm:text-[11px] uppercase font-black tracking-wider">
-                <th class="px-2.5 py-3 text-center w-14 border-r border-white/10">ዑደት</th>
-                <th class="px-3.5 py-3 text-left border-r border-white/10">የእለት ቀን (Ethiopian & Gregorian)</th>`;
+            let html = `<thead><tr class="bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-white text-[9px] sm:text-[11px] uppercase font-black tracking-wider">
+                <th class="px-2.5 py-3.5 text-center w-14 border-r border-white/10">ዑደት</th>
+                <th class="px-3.5 py-3.5 text-left border-r border-white/10">የእለት ቀን</th>`;
             
             divisionsToShow.forEach(divNum => {
-                let divHeaderBg = "";
-                if(divNum === 1) divHeaderBg = "text-amber-300 bg-amber-950/40";
-                else if(divNum === 2) divHeaderBg = "text-sky-300 bg-sky-950/40";
-                else if(divNum === 3) divHeaderBg = "text-purple-300 bg-purple-950/40";
-                else divHeaderBg = "text-emerald-300 bg-emerald-950/40";
-
-                html += `<th class="px-2.5 py-3 text-center border-r border-white/10 last:border-r-0 ${divHeaderBg}">ዲቪዥን ${divNum}</th>`;
+                html += `<th class="px-2.5 py-3.5 text-center border-r border-white/10 last:border-r-0">ዲቪዥን ${divNum}</th>`;
             });
             html += `</tr></thead><tbody class="divide-y divide-slate-200/80 text-[9px] sm:text-[11px] font-bold">`;
 
             for (let i = 0; i < 28; i++) {
                 const d = new Date(SHIFT_START_DATE);
                 d.setDate(d.getDate() + i);
-                const ethDateStr = getEthiopianDateString(d);
-                const gregDateStr = getGregorianDateString(d);
+                const ethWeekday = getEthiopianWeekdayEthName(d);
                 const cycleNum = i + 1;
 
                 html += `<tr class="bg-white/90 hover:bg-white transition-all duration-200">
-                    <td class="px-2.5 py-2.5 text-center font-black text-slate-900 bg-gradient-to-r from-sky-100/80 to-teal-100/80 border-r border-slate-200/80 shadow-sm">${cycleNum}</td>
-                    <td class="px-3.5 py-2.5 text-slate-900 font-extrabold whitespace-nowrap border-r border-slate-200/80">${ethDateStr} <span class="text-[8px] text-slate-500 font-normal">(${gregDateStr})</span></td>`;
+                    <td class="px-2.5 py-2.5 text-center font-black text-slate-900 bg-slate-100/80 border-r border-slate-200/80 shadow-sm">${cycleNum}</td>
+                    <td class="px-3.5 py-2.5 text-slate-900 font-extrabold whitespace-nowrap border-r border-slate-200/80">${ethWeekday}</td>`;
 
                 divisionsToShow.forEach(divNum => {
                     const shift = getShiftForDate(divNum, d);
-                    let cellBgStyle = "";
-                    if(divNum === 1) cellBgStyle = "bg-amber-50/60 border-amber-200";
-                    else if(divNum === 2) cellBgStyle = "bg-sky-50/60 border-sky-200";
-                    else if(divNum === 3) cellBgStyle = "bg-purple-50/60 border-purple-200";
-                    else cellBgStyle = "bg-emerald-50/60 border-emerald-200";
-
-                    html += `<td class="px-1.5 py-2.5 text-center border-r border-slate-200/60 last:border-r-0 ${cellBgStyle}">
-                        <span class="inline-block w-full py-1.5 px-2 text-center rounded-lg border text-[9px] sm:text-[10px] tracking-tight ${shift.color}">${shift.shortName || shift.name}</span>
+                    html += `<td class="px-1.5 py-2.5 text-center border-r border-slate-200/60 last:border-r-0">
+                        <span class="inline-block w-full py-2 px-2 text-center rounded-xl border text-[9px] sm:text-[10px] tracking-tight ${shift.color}">${shift.shortName || shift.name}</span>
                     </td>`;
                 });
 
