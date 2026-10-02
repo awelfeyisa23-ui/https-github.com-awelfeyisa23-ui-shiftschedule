@@ -6,11 +6,7 @@
     <title>Shift Management System</title>
     <meta property="og:title" content="Shift Management System" />
     <meta property="og:description" content="Shift Management System - Professional Roster Portal" />
-    <meta property="og:image" content="https://pbs.twimg.com/profile_images/2105866869236211712/Vn_SwaVg_400x400.jpg">
-    <img src="https://pbs.twimg.com/profile_images/2105866869236211712/Vn_SwaVg_400x400.jpg" alt="Awel F. Milkeso">
-    <meta property="og:image" content="https://pbs.twimg.com/profile_images/2105866869236211712/Vn_SwaVg_400x400.jpg" />
     <meta property="og:url" content="https://shiftschedulemgt.vercel.app" />
-    <meta name="twitter:image" content="https://raw.githubusercontent.com/awelfeyisa23/ui-shiftschedule/main/project-icon.png" />
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@300;400;500;700;900&display=swap" rel="stylesheet">
@@ -96,7 +92,6 @@
         <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#38bdf8_2px,transparent_2px)] [background-size:24px_24px]"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 relative z-10 flex items-center justify-between gap-4">
             
-            <!-- Left Header: Admin Panel Button & Square Developer Badge -->
             <div class="flex items-center gap-2.5">
                 <button onclick="switchTab('admin')" title="Admin Panel" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-br from-rose-600 to-red-700 hover:from-rose-500 hover:to-red-600 text-white shadow-lg border border-white/30 transition active:scale-95">
                     <i class="fa-solid fa-lock text-xs"></i>
@@ -104,19 +99,18 @@
                 </button>
 
                 <div onclick="openDeveloperModal()" title="System Developer: Awel Feyisa" class="flex items-center gap-2 px-2.5 py-1 rounded-xl bg-white/10 hover:bg-white/20 border border-teal-400/40 cursor-pointer transition shadow-sm">
-                    <img id="directorPhoto" src="https://github.com/user-attachments/assets/dfa5fcbf-41d8-460e-942b-3d18f29330bb" alt="Awel" class="w-7 h-7 rounded-lg object-cover border-2 border-teal-300 shadow-sm">
+                    <img id="directorPhoto" src="https://pbs.twimg.com/profile_images/2105866869236211712/Vn_SwaVg_400x400.jpg" alt="Awel" class="w-7 h-7 rounded-lg object-cover border-2 border-teal-300 shadow-sm">
                     <span class="text-[11px] font-black text-teal-300 hidden sm:inline">Awel Feyisa</span>
                 </div>
             </div>
 
-            <!-- Center Header Title -->
             <div class="flex items-center gap-2 text-center">
                 <div class="text-xs sm:text-base font-black text-amber-300 tracking-wider">
                     SHIFT MANAGEMENT SYSTEM
                 </div>
             </div>
 
-            <div class="w-12 sm:w-20"></div>
+            <div class="w-12 sm:w-28"></div>
         </div>
     </header>
 
@@ -187,28 +181,28 @@
                 <div class="relative overflow-hidden p-3.5 rounded-2xl flex items-center gap-3 border border-amber-400 bg-gradient-to-r from-amber-300 to-yellow-400 text-amber-950 shadow-lg">
                     <div class="w-9 h-9 rounded-xl bg-white/90 text-amber-950 flex items-center justify-center font-black text-xs shadow-md shrink-0 border border-amber-500"><i class="fa-solid fa-sun"></i></div>
                     <div class="min-w-0">
-                        <div class="text-[8px] uppercase font-black text-amber-900 tracking-wider">ጠዋት (Morning)</div>
+                        <div class="text-[8px] uppercase font-black text-amber-900 tracking-wider">Morning (ጠዋት)</div>
                         <div class="text-[9px] sm:text-[10px] font-black text-amber-950 truncate">11:30 - 07:30</div>
                     </div>
                 </div>
                 <div class="relative overflow-hidden p-3.5 rounded-2xl flex items-center gap-3 border border-sky-400 bg-gradient-to-r from-sky-300 to-blue-400 text-sky-950 shadow-lg">
                     <div class="w-9 h-9 rounded-xl bg-white/90 text-sky-950 flex items-center justify-center font-black text-xs shadow-md shrink-0 border border-sky-500"><i class="fa-solid fa-moon"></i></div>
                     <div class="min-w-0">
-                        <div class="text-[8px] uppercase font-black text-sky-900 tracking-wider">ቀን/ማታ (Evening)</div>
+                        <div class="text-[8px] uppercase font-black text-sky-900 tracking-wider">Evening (ቀን-ማታ)</div>
                         <div class="text-[9px] sm:text-[10px] font-black text-sky-950 truncate">7:30 - 3:30</div>
                     </div>
                 </div>
                 <div class="relative overflow-hidden p-3.5 rounded-2xl flex items-center gap-3 border border-slate-700 bg-gradient-to-r from-slate-900 to-indigo-950 text-amber-300 shadow-lg">
                     <div class="w-9 h-9 rounded-xl bg-slate-800 text-amber-300 flex items-center justify-center font-black text-xs shadow-md shrink-0 border border-slate-700"><i class="fa-solid fa-star"></i></div>
                     <div class="min-w-0">
-                        <div class="text-[8px] uppercase font-black text-slate-300 tracking-wider">ለሊት (Night)</div>
+                        <div class="text-[8px] uppercase font-black text-slate-300 tracking-wider">Night (ለሊት)</div>
                         <div class="text-[9px] sm:text-[10px] font-black text-amber-300 truncate">3:30 - 11:30</div>
                     </div>
                 </div>
                 <div class="relative overflow-hidden p-3.5 rounded-2xl flex items-center gap-3 border border-emerald-400 bg-gradient-to-r from-emerald-300 to-teal-400 text-emerald-950 shadow-lg">
                     <div class="w-9 h-9 rounded-xl bg-white/90 text-emerald-950 flex items-center justify-center font-black text-xs shadow-md shrink-0 border border-emerald-500"><i class="fa-solid fa-mug-hot"></i></div>
                     <div class="min-w-0">
-                        <div class="text-[8px] uppercase font-black text-emerald-900 tracking-wider">እረፍት (Day Off)</div>
+                        <div class="text-[8px] uppercase font-black text-emerald-900 tracking-wider">Day Off (እረፍት)</div>
                         <div class="text-[9px] sm:text-[10px] font-black text-emerald-950 truncate">24 hours</div>
                     </div>
                 </div>
@@ -461,8 +455,8 @@
 
             <div class="relative z-10 space-y-3.5 text-center">
                 <div class="flex flex-col items-center justify-center">
-                    <div class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden p-1.5 bg-gradient-to-tr from-sky-400 via-teal-400 to-indigo-500 shadow-xl hover:scale-105 transition-transform duration-300 border-2 border-white/90">
-                        <img id="modalDeveloperImg" src="https://github.com/user-attachments/assets/dfa5fcbf-41d8-460e-942b-3d18f29330bb" alt="Awel Feyisa" class="w-full h-full object-cover object-top rounded-xl bg-white shadow-inner">
+                    <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden p-1 bg-gradient-to-tr from-sky-400 via-teal-400 to-indigo-500 shadow-xl hover:scale-105 transition-transform duration-300 border-2 border-white/90">
+                        <img id="modalDeveloperImg" src="https://pbs.twimg.com/profile_images/2105866869236211712/Vn_SwaVg_400x400.jpg" alt="Awel Feyisa" class="w-full h-full object-cover object-top rounded-lg bg-white shadow-inner">
                     </div>
                 </div>
 
@@ -516,7 +510,7 @@
         let systemSettings = {
             adminPass: "AirborderICS@GHA2026",
             sitePass: "Airborderstaff123@",
-            directorPhoto: "https://github.com/user-attachments/assets/dfa5fcbf-41d8-460e-942b-3d18f29330bb"
+            directorPhoto: "https://pbs.twimg.com/profile_images/2105866869236211712/Vn_SwaVg_400x400.jpg"
         };
 
         let isAdminLoggedIn = false;
@@ -585,10 +579,9 @@
             const nowTimestamp = new Date().getTime();
             const displayName = currentStaffName ? currentStaffName : ('Visitor (' + mySessionId + ')');
 
-            // Filter out users who have been online for more than 24 hours (24 * 60 * 60 * 1000 ms)
             const twentyFourHoursMs = 24 * 60 * 60 * 1000;
             onlineList = onlineList.filter(user => {
-                if (!user.timestamp) return true; // keep legacy records if any
+                if (!user.timestamp) return true;
                 return (nowTimestamp - user.timestamp) < twentyFourHoursMs;
             });
 
@@ -597,7 +590,6 @@
             if(existingIndex >= 0) {
                 onlineList[existingIndex].name = displayName;
                 onlineList[existingIndex].lastActive = now;
-                // update timestamp or keep original join time
             } else {
                 onlineList.push({
                     id: mySessionId,
@@ -636,6 +628,14 @@
                 const stored = localStorage.getItem('shift_online_users');
                 if(stored) onlineList = JSON.parse(stored);
             } catch(e){}
+
+            const twentyFourHoursMs = 24 * 60 * 60 * 1000;
+            const nowTimestamp = new Date().getTime();
+            onlineList = onlineList.filter(user => {
+                if (!user.timestamp) return true;
+                return (nowTimestamp - user.timestamp) < twentyFourHoursMs;
+            });
+            localStorage.setItem('shift_online_users', JSON.stringify(onlineList));
 
             if(onlineList.length === 0) {
                 container.innerHTML = '<div class="text-center text-slate-500 text-xs py-3">ምንም ኦንላይን ተጠቃሚ የለም።</div>';
@@ -739,38 +739,63 @@
 
             ['matrix', 'lookup'].forEach(id => {
                 const card = document.getElementById(`nav-${id}`);
-                if (card) {
-                    if (id === tabId) {
-                        card.classList.add('ring-2', 'ring-sky-500', 'scale-[1.01]');
+                if(card) {
+                    if(id === tabId) {
+                        card.classList.add('ring-2', 'ring-sky-500', 'shadow-lg');
                     } else {
-                        card.classList.remove('ring-2', 'ring-sky-500', 'scale-[1.01]');
+                        card.classList.remove('ring-2', 'ring-sky-500', 'shadow-lg');
                     }
                 }
             });
         }
 
+        function getEthiopianDateString(date) {
+            const baseGregorian = new Date('2026-10-02');
+            const diffTime = date.getTime() - baseGregorian.getTime();
+            const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
+            
+            let ethYear = 2019;
+            let ethMonth = 2; // Tikimt
+            let ethDay = 2 + diffDays;
+            
+            while (ethDay > 30) {
+                ethDay -= 30;
+                ethMonth++;
+                if (ethMonth > 13) {
+                    ethMonth = 1;
+                    ethYear++;
+                }
+            }
+            while (ethDay < 1) {
+                ethDay += 30;
+                ethMonth--;
+                if (ethMonth < 1) {
+                    ethMonth = 13;
+                    ethYear--;
+                }
+            }
+            
+            const months = ['', 'መስከረም', 'ጥቅምት', 'ህዳር', 'ታህሳስ', 'ጥር', 'የካቲት', 'መጋቢት', 'ሚያዚያ', 'ግንቦት', 'ሰኔ', 'ሀምሌ', 'ነሀሴ', 'ጳጉሜ'];
+            return `${months[ethMonth] || 'ጥቅምት'} ${ethDay}, ${ethYear}`;
+        }
+
+        function getGregorianDateString(date) {
+            return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        }
+
         function getShiftForDate(divisionNum, targetDate) {
             const start = new Date(SHIFT_START_DATE.getFullYear(), SHIFT_START_DATE.getMonth(), SHIFT_START_DATE.getDate());
             const target = new Date(targetDate.getFullYear(), targetDate.getMonth(), targetDate.getDate());
+            const diffDays = Math.floor((target.getTime() - start.getTime()) / (1000 * 60 * 60 * 24));
             
-            const diffTime = target.getTime() - start.getTime();
-            const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+            const pattern = SHIFT_PATTERNS[divisionNum] || SHIFT_PATTERNS[1];
+            const patternIndex = diffDays >= 0 ? diffDays % 28 : (28 - (Math.abs(diffDays) % 28)) % 28;
+            const code = pattern[patternIndex];
 
-            if (diffDays < 0) {
-                return { code: 'PRE', name: 'Pre-Cycle (ከዑደት በፊት)', shortName: 'Pre-Cycle', color: 'bg-slate-100 text-slate-500 border-slate-300' };
-            }
-
-            const cycleIndex = diffDays % 28;
-            const pattern = SHIFT_PATTERNS[divisionNum];
-            const shiftCode = pattern[cycleIndex];
-
-            switch(shiftCode) {
-                case 'M': return { code: 'M', name: 'Morning (ጠዋት)', shortName: 'Morning (ጠዋት)', color: 'bg-gradient-to-r from-amber-300 to-yellow-400 text-amber-950 border-amber-400 shadow-md font-black' };
-                case 'E': return { code: 'E', name: 'Evening (ቀን-ማታ)', shortName: 'Evening (ቀን-ማታ)', color: 'bg-gradient-to-r from-sky-300 to-blue-400 text-sky-950 border-sky-400 shadow-md font-black' };
-                case 'N': return { code: 'N', name: 'Night (ለሊት)', shortName: 'Night (ለሊት)', color: 'bg-gradient-to-r from-slate-900 to-indigo-950 text-amber-300 border-slate-700 shadow-md font-black' };
-                case 'O': return { code: 'O', name: 'Day Off (እረፍት)', shortName: 'Day Off (እረፍት)', color: 'bg-gradient-to-r from-emerald-300 to-teal-400 text-emerald-950 border-emerald-400 shadow-md font-black' };
-                default: return { code: 'O', name: 'Day Off (እረፍት)', shortName: 'Day Off (እረፍት)', color: 'bg-slate-100 text-slate-600 border-slate-200' };
-            }
+            if (code === 'M') return { code: 'M', name: 'Morning (ጠዋት)', shortName: 'Morning (ጠዋት)', color: 'bg-amber-100 text-amber-950 border-amber-300' };
+            if (code === 'E') return { code: 'E', name: 'Evening (ቀን-ማታ)', shortName: 'Evening (ቀን-ማታ)', color: 'bg-sky-100 text-sky-950 border-sky-300' };
+            if (code === 'N') return { code: 'N', name: 'Night (ለሊት)', shortName: 'Night (ለሊት)', color: 'bg-slate-900 text-amber-300 border-slate-700' };
+            return { code: 'O', name: 'Day Off (እረፍት)', shortName: 'Day Off (እረፍት)', color: 'bg-emerald-100 text-emerald-950 border-emerald-300' };
         }
 
         function renderMatrix() {
@@ -783,7 +808,7 @@
 
             let html = `<thead><tr class="bg-gradient-to-r from-slate-900 via-sky-950 to-slate-900 text-white text-[9px] sm:text-[11px] uppercase font-black tracking-wider">
                 <th class="px-2.5 py-3 text-center w-14 border-r border-white/10">ዑደት</th>
-                <th class="px-3.5 py-3 text-left border-r border-white/10">የእለቱ ቀን</th>`;
+                <th class="px-3.5 py-3 text-left border-r border-white/10">የእለት ቀን (Ethiopian & Gregorian)</th>`;
             
             divisionsToShow.forEach(divNum => {
                 let divHeaderBg = "";
@@ -799,12 +824,13 @@
             for (let i = 0; i < 28; i++) {
                 const d = new Date(SHIFT_START_DATE);
                 d.setDate(d.getDate() + i);
-                const dayName = d.toLocaleString('am-ET', { weekday: 'long' });
+                const ethDateStr = getEthiopianDateString(d);
+                const gregDateStr = getGregorianDateString(d);
                 const cycleNum = i + 1;
 
                 html += `<tr class="bg-white/90 hover:bg-white transition-all duration-200">
                     <td class="px-2.5 py-2.5 text-center font-black text-slate-900 bg-gradient-to-r from-sky-100/80 to-teal-100/80 border-r border-slate-200/80 shadow-sm">${cycleNum}</td>
-                    <td class="px-3.5 py-2.5 text-slate-900 font-extrabold whitespace-nowrap border-r border-slate-200/80">${dayName}</td>`;
+                    <td class="px-3.5 py-2.5 text-slate-900 font-extrabold whitespace-nowrap border-r border-slate-200/80">${ethDateStr} <span class="text-[8px] text-slate-500 font-normal">(${gregDateStr})</span></td>`;
 
                 divisionsToShow.forEach(divNum => {
                     const shift = getShiftForDate(divNum, d);
@@ -838,7 +864,8 @@
             const target = new Date(targetDate.getFullYear(), targetDate.getMonth(), targetDate.getDate());
             const diffDays = Math.floor((target.getTime() - start.getTime()) / (1000 * 60 * 60 * 24));
             const cycleDayNum = diffDays >= 0 ? (diffDays % 28) + 1 : "ከዑደት በፊት";
-            const formattedDayName = targetDate.toLocaleDateString('am-ET', { weekday: 'long', month: 'short', day: 'numeric', year: 'numeric' });
+            const ethDateStr = getEthiopianDateString(targetDate);
+            const gregDateStr = targetDate.toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric', year: 'numeric' });
 
             let html = `
                 <div class="bg-gradient-to-r from-sky-900/90 via-indigo-950 to-slate-900 text-white p-3.5 sm:p-4 rounded-2xl border border-sky-400/30 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-3">
@@ -847,8 +874,8 @@
                             <i class="fa-solid fa-calendar-days"></i>
                         </div>
                         <div>
-                            <div class="text-[7px] uppercase font-black text-sky-300 tracking-wider">የተመረጠው እለት</div>
-                            <div class="text-xs sm:text-sm font-black text-white mt-0.5">${formattedDayName}</div>
+                            <div class="text-[7px] uppercase font-black text-sky-300 tracking-wider">የተመረጠው እለት (Ethiopian & Gregorian)</div>
+                            <div class="text-xs sm:text-sm font-black text-white mt-0.5">${ethDateStr} | ${gregDateStr}</div>
                         </div>
                     </div>
                     <div class="flex items-center gap-2 bg-white/10 backdrop-blur-md px-3.5 py-2 rounded-xl border border-white/20">
