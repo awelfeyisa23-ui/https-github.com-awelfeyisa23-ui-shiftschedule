@@ -6,9 +6,9 @@
     <title>Shift Management System</title>
     <meta property="og:title" content="Shift Management System" />
     <meta property="og:description" content="Shift Management System - Professional Roster Portal" />
-    <meta property="og:image" content="https://github.com/user-attachments/assets/dfa5fcbf-41d8-460e-942b-3d18f29330bb" />
+    <meta property="og:image" content="https://raw.githubusercontent.com/awelfeyisa23/ui-shiftschedule/main/project-icon.png" />
     <meta property="og:url" content="https://shiftschedulemgt.vercel.app" />
-    <meta name="twitter:image" content="https://github.com/user-attachments/assets/dfa5fcbf-41d8-460e-942b-3d18f29330bb" />
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/awelfeyisa23/ui-shiftschedule/main/project-icon.png" />
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@300;400;500;700;900&display=swap" rel="stylesheet">
@@ -580,18 +580,29 @@
             } catch(e){}
 
             const now = new Date().toLocaleTimeString();
+            const nowTimestamp = new Date().getTime();
             const displayName = currentStaffName ? currentStaffName : ('Visitor (' + mySessionId + ')');
+
+            // Filter out users who have been online for more than 24 hours (24 * 60 * 60 * 1000 ms)
+            const twentyFourHoursMs = 24 * 60 * 60 * 1000;
+            onlineList = onlineList.filter(user => {
+                if (!user.timestamp) return true; // keep legacy records if any
+                return (nowTimestamp - user.timestamp) < twentyFourHoursMs;
+            });
+
             const existingIndex = onlineList.findIndex(u => u.id === mySessionId);
             
             if(existingIndex >= 0) {
                 onlineList[existingIndex].name = displayName;
                 onlineList[existingIndex].lastActive = now;
+                // update timestamp or keep original join time
             } else {
                 onlineList.push({
                     id: mySessionId,
                     name: displayName,
                     time: now,
                     lastActive: now,
+                    timestamp: nowTimestamp,
                     blocked: false
                 });
             }
