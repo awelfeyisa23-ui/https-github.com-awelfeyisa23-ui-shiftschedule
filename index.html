@@ -1,98 +1,58 @@
 <!DOCTYPE html>
-<html lang="am" dir="ltr">
+<html lang="en" dir="ltr" class="h-full">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Shift Management System</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <style>
-        body {
-            font-family: 'Inter', 'Noto Sans Ethiopic', sans-serif;
-            background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
-            -webkit-tap-highlight-color: transparent;
-        }
-        .watercolor-glass-matrix {
-            background: linear-gradient(135deg, rgba(254, 243, 199, 0.85) 0%, rgba(224, 242, 254, 0.85) 50%, rgba(204, 251, 241, 0.8) 100%);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border: 1.5px solid rgba(255, 255, 255, 0.95);
-            box-shadow: 0 25px 50px -12px rgba(217, 119, 6, 0.15), 0 0 1px 1px rgba(255, 255, 255, 0.95) inset;
-        }
-        .watercolor-nav-card-1 {
-            background: linear-gradient(135deg, rgba(254, 243, 199, 0.9) 0%, rgba(255, 255, 255, 0.95) 100%);
-            backdrop-filter: blur(20px);
-            border: 1.5px solid rgba(245, 158, 11, 0.6);
-            box-shadow: 0 8px 20px -5px rgba(217, 119, 6, 0.15);
-        }
-        .watercolor-nav-card-2 {
-            background: linear-gradient(135deg, rgba(224, 242, 254, 0.9) 0%, rgba(255, 255, 255, 0.95) 100%);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1.5px solid rgba(14, 165, 233, 0.6);
-            box-shadow: 0 8px 20px -5px rgba(14, 165, 233, 0.15), 0 0 1px 1px rgba(255, 255, 255, 0.9) inset;
-        }
-        .liquid-glass-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(240, 249, 255, 0.8) 50%, rgba(224, 242, 254, 0.85) 100%);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border: 1.5px solid rgba(255, 255, 255, 0.95);
-            box-shadow: 0 20px 40px -15px rgba(14, 165, 233, 0.2), 0 0 1px 1px rgba(255, 255, 255, 0.9) inset;
-        }
-        .liquid-glass-icon {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(224, 242, 254, 0.8) 100%);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1.5px solid rgba(255, 255, 255, 0.95);
-            box-shadow: 0 8px 20px -5px rgba(14, 165, 233, 0.25), 0 0 1px 1px rgba(255, 255, 255, 0.9) inset;
-        }
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
-        }
+        body { font-family: 'Inter', sans-serif; }
+        .shift-morning { background-color: #dbeafe; color: #1e40af; border-color: #93c5fd; }
+        .shift-evening { background-color: #fef3c7; color: #b45309; border-color: #fde68a; }
+        .shift-night { background-color: #ede9fe; color: #5b21b6; border-color: #ddd6fe; }
+        .shift-off { background-color: #f3f4f6; color: #4b5563; border-color: #e5e7eb; }
     </style>
 </head>
-<body class="min-h-screen text-slate-800 flex flex-col justify-between selection:bg-teal-500 selection:text-white">
+<body class="min-h-screen text-slate-900 flex flex-col justify-between selection:bg-teal-500 selection:text-white">
 
     <div id="siteLockModal" class="fixed inset-0 bg-slate-950/90 backdrop-blur-xl z-50 flex items-center justify-center p-4">
-        <div class="relative overflow-hidden rounded-[36px] p-8 sm:p-12 shadow-2xl border border-white/90 text-slate-900 max-w-md w-full text-center watercolor-glass-matrix animate-in fade-in zoom-in duration-300" style="background: linear-gradient(135deg, rgba(224, 242, 254, 0.95) 0%, rgba(204, 251, 241, 0.9) 50%, rgba(254, 243, 199, 0.85) 100%);">
+        <div class="relative overflow-hidden rounded-[36px] p-8 sm:p-12 shadow-2xl border border-amber-300/60 text-slate-900 max-w-md w-full text-center" style="background: linear-gradient(135deg, rgba(254, 243, 199, 0.95) 0%, rgba(224, 242, 254, 0.9) 50%, rgba(255, 255, 255, 0.95) 100%);">
             
-            <div class="absolute -left-16 -top-16 w-48 h-48 bg-sky-400/20 rounded-full blur-3xl pointer-events-none"></div>
-            <div class="absolute -right-16 -bottom-16 w-48 h-48 bg-teal-400/20 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -left-16 -top-16 w-48 h-48 bg-amber-400/20 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -right-16 -bottom-16 w-48 h-48 bg-sky-400/20 rounded-full blur-3xl pointer-events-none"></div>
 
             <div class="relative z-10">
-                <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-[10px] font-black bg-sky-500/15 text-sky-950 border border-sky-500/30 mb-3">
-                    <i class="fa-solid fa-shield-cat text-sky-600"></i> SHIFT SYSTEM ACCESS
+                <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-[10px] font-black bg-amber-500/15 text-amber-950 border border-amber-500/30 mb-3 uppercase">
+                    <i class="fa-solid fa-shield-cat text-amber-600"></i> SHIFT SYSTEM ACCESS
                 </div>
-                <h3 class="text-base sm:text-2xl font-black text-sky-950 tracking-tight mb-1">STAFF ACCESS</h3>
-                <p class="text-[11px] sm:text-xs text-sky-900/80 mb-6 font-bold">ENTER YOUR PASSWORD</p>
+                <h3 class="text-base sm:text-2xl font-black text-amber-950 tracking-tight mb-1 uppercase"></h3>
+                <p class="text-[11px] sm:text-xs text-amber-950 mb-6 font-extrabold uppercase"></p>
                 
                 <form id="siteUnlockForm" class="space-y-4 text-left">
                     <div class="space-y-1">
-                        <label class="block text-[10px] font-black text-sky-950 uppercase"><i class="fa-solid fa-user text-sky-600"></i>Name</label>
+                        <label class="block text-[10px] font-black text-amber-950 uppercase"><i class="fa-solid fa-user text-amber-600"></i>NAME</label>
                         <div class="relative">
-                            <i class="fa-solid fa-id-card absolute left-4 top-3.5 text-sky-600 text-xs"></i>
-                            <input type="text" id="staffNameInput" placeholder="Insert Name..." class="w-full pl-10 pr-4 py-3 bg-white/90 backdrop-blur-md border border-sky-300 rounded-2xl font-black text-xs text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500 shadow-inner" required>
+                            <i class="fa-solid fa-id-card absolute left-4 top-3.5 text-amber-600 text-xs"></i>
+                            <input type="text" id="staffNameInput" placeholder="INSERT NAME" class="w-full pl-10 pr-4 py-3 bg-white/95 backdrop-blur-md border border-amber-300 rounded-2xl font-black text-xs text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 shadow-inner uppercase" required>
                         </div>
                     </div>
 
                     <div class="space-y-1">
-                        <label class="block text-[10px] font-black text-sky-950 uppercase"><i class="fa-solid fa-key text-sky-600"></i>Password</label>
+                        <label class="block text-[10px] font-black text-amber-950 uppercase"><i class="fa-solid fa-key text-amber-600"></i>PASSWORD</label>
                         <div class="relative">
-                            <i class="fa-solid fa-key absolute left-4 top-3.5 text-sky-600 text-xs"></i>
-                            <input type="password" id="sitePasswordInput" placeholder="Insert Password..." class="w-full pl-10 pr-4 py-3 bg-white/90 backdrop-blur-md border border-sky-300 rounded-2xl font-black text-xs tracking-widest text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500 shadow-inner" required>
+                            <i class="fa-solid fa-key absolute left-4 top-3.5 text-amber-600 text-xs"></i>
+                            <input type="password" id="sitePasswordInput" placeholder="INSERT PASSWORD" class="w-full pl-10 pr-4 py-3 bg-white/95 backdrop-blur-md border border-amber-300 rounded-2xl font-black text-xs tracking-widest text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 shadow-inner" required>
                         </div>
                     </div>
 
                     <div class="flex items-center gap-2 pt-1">
-                        <input type="checkbox" id="rememberWeekCheckbox" class="w-4 h-4 rounded text-sky-600 focus:ring-sky-500 border-sky-300 cursor-pointer">
-                        <label for="rememberWeekCheckbox" class="text-[11px] font-bold text-sky-950 cursor-pointer">Remember for 1 week</label>
+                        <input type="checkbox" id="rememberWeekCheckbox" class="w-4 h-4 rounded text-amber-600 focus:ring-amber-500 border-amber-300 cursor-pointer">
+                        <label for="rememberWeekCheckbox" class="text-[11px] font-extrabold text-amber-950 cursor-pointer uppercase">REMEMBER FOR ONE WEEK</label>
                     </div>
 
-                    <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-sky-600 via-blue-600 to-sky-700 hover:from-sky-500 hover:to-blue-600 text-white font-black text-[11px] sm:text-xs rounded-2xl shadow-xl shadow-sky-600/30 transition transform active:scale-95 flex items-center justify-center gap-2 border border-white/40 mt-2">
+                    <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 hover:from-amber-400 hover:to-yellow-500 text-slate-950 font-black text-[11px] sm:text-xs rounded-2xl shadow-xl shadow-amber-500/20 transition transform active:scale-95 flex items-center justify-center gap-2 border border-white/60 mt-2 uppercase">
                         <i class="fa-solid fa-arrow-right-to-bracket text-sm"></i> ENTER
                     </button>
                 </form>
@@ -116,7 +76,7 @@
             </div>
 
             <div class="flex items-center gap-2 text-center">
-                <div class="text-xs sm:text-base font-black text-amber-300 tracking-wider">
+                <div class="text-xs sm:text-base font-black text-amber-300 tracking-wider uppercase">
                     SHIFT MANAGEMENT SYSTEM
                 </div>
             </div>
@@ -129,26 +89,26 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 gap-2.5 max-w-xs mx-auto">
                 
-                <button onclick="switchTab('matrix')" id="nav-matrix" class="nav-btn group relative overflow-hidden text-left p-2 rounded-xl transition-all duration-300 watercolor-nav-card-1 hover:-translate-y-0.5 hover:shadow-md active:scale-95">
+                <button onclick="switchTab('matrix')" id="nav-matrix" class="nav-btn group relative overflow-hidden text-left p-2.5 rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg active:scale-95 bg-white border-2 border-amber-400/80 shadow-md">
                     <div class="relative z-10 flex items-center gap-2">
                         <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-amber-400 via-amber-500 to-yellow-600 text-slate-950 flex items-center justify-center font-black text-xs shadow-sm shrink-0 group-hover:rotate-6 transition border border-white">
                             <i class="fa-solid fa-calendar-days text-[10px]"></i>
                         </div>
                         <div class="min-w-0">
-                            <div class="text-[7px] uppercase font-black text-amber-900 tracking-wider">MATRIX</div>
-                            <div class="text-[10px] sm:text-xs font-black text-slate-950 truncate tracking-tight">የፈረቃ ማትሪክስ</div>
+                            <div class="text-[7px] uppercase font-black text-amber-950 tracking-wider">SHIFT MATRIX</div>
+                            <div class="text-[10px] sm:text-xs font-black text-slate-950 truncate tracking-tight uppercase">የፈረቃ ማትሪክስ</div>
                         </div>
                     </div>
                 </button>
 
-                <button onclick="switchTab('lookup')" id="nav-lookup" class="nav-btn group relative overflow-hidden text-left p-2 rounded-xl transition-all duration-300 watercolor-nav-card-2 hover:-translate-y-0.5 hover:shadow-md active:scale-95">
+                <button onclick="switchTab('lookup')" id="nav-lookup" class="nav-btn group relative overflow-hidden text-left p-2.5 rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg active:scale-95 bg-white border-2 border-sky-400/80 shadow-md">
                     <div class="relative z-10 flex items-center gap-2">
                         <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-sky-400 via-sky-500 to-blue-600 text-white flex items-center justify-center font-black text-xs shadow-sm shrink-0 group-hover:rotate-6 transition border border-white">
                             <i class="fa-solid fa-magnifying-glass text-[10px]"></i>
                         </div>
                         <div class="min-w-0">
-                            <div class="text-[7px] uppercase font-black text-sky-900 tracking-wider">LOOKUP</div>
-                            <div class="text-[10px] sm:text-xs font-black text-slate-950 truncate tracking-tight">ቀን ማረጋገጫ</div>
+                            <div class="text-[7px] uppercase font-black text-sky-950 tracking-wider">SHIFT LOOKUP</div>
+                            <div class="text-[10px] sm:text-xs font-black text-slate-950 truncate tracking-tight uppercase">የፈረቃ ማረጋገጫ</div>
                         </div>
                     </div>
                 </button>
@@ -160,67 +120,76 @@
     <main class="flex-grow w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6">
 
         <section id="tab-matrix" class="space-y-4 sm:space-y-6">
-            <div class="relative overflow-hidden rounded-[32px] p-5 sm:p-8 shadow-2xl border border-white/90 text-slate-900 watercolor-glass-matrix">
+            <div class="relative overflow-hidden rounded-[32px] p-5 sm:p-8 shadow-2xl border border-white/90 text-slate-900 bg-white/90 backdrop-blur-xl">
                 
                 <div class="absolute -left-16 -top-16 w-56 h-56 bg-amber-400/20 rounded-full blur-3xl pointer-events-none"></div>
                 <div class="absolute -right-16 -bottom-16 w-56 h-56 bg-sky-400/20 rounded-full blur-3xl pointer-events-none"></div>
 
                 <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                     <div>
-                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-black bg-gradient-to-r from-amber-500 to-yellow-500 text-slate-950 shadow-md shadow-amber-500/20 border border-white/60 mb-2 liquid-glass-card">
-                            <i class="fa-solid fa-clock-rotate-left"></i> የፈረቃ ዑደት መመሪያ
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-black bg-gradient-to-r from-amber-500 to-yellow-500 text-slate-950 shadow-md shadow-amber-500/20 border border-white/60 mb-2 uppercase">
+                            <i class="fa-solid fa-clock-rotate-left"></i> SHIFT CYCLE GUIDE
                         </div>
-                        <h2 class="text-lg sm:text-2xl font-black text-slate-900 tracking-tight">የ28 ቀን ፈረቃ ሰንጠረዥ</h2>
-                        <p class="text-[10px] sm:text-xs text-slate-700 mt-0.5 font-bold">
-                            የፈረቃ መጀመሪያ ቀን <span class="font-extrabold text-amber-900 bg-white/80 px-2.5 py-0.5 rounded-lg border border-amber-300/80 shadow-sm liquid-glass-card">ጥቅምት 02 2019 (Oct 02, 2026)</span>
+                        <h2 class="text-lg sm:text-2xl font-black text-slate-900 tracking-tight uppercase">28-DAY SHIFT ROSTER</h2>
+                        <p class="text-[10px] sm:text-xs text-slate-900 mt-0.5 font-extrabold uppercase">
+                            SHIFT START DATE <span class="font-black text-amber-950 bg-white/90 px-2.5 py-0.5 rounded-lg border border-amber-300 shadow-sm">FRIDAY, OCTOBER 02, 2026 G.C (መስከረም 22 / 2019 ዓ.ም)</span>
                         </p>
                     </div>
-                    <div class="flex items-center gap-2 w-full md:w-auto justify-between md:justify-start bg-white/70 backdrop-blur-xl p-2.5 rounded-2xl border border-white/90 shadow-xl liquid-glass-card">
-                        <span class="text-[10px] sm:text-xs font-black text-slate-800 whitespace-nowrap pl-1"><i class="fa-solid fa-filter text-amber-600"></i> ማጣሪያ:</span>
-                        <select id="matrixDivisionFilter" onchange="renderMatrix()" class="px-3 py-2 bg-white/90 border border-amber-200 rounded-xl text-[10px] sm:text-xs font-black text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 shadow-sm cursor-pointer liquid-glass-card">
-                            <option value="all">ሁሉም ዲቪዥኖች</option>
-                            <option value="1">ዲቪዥን 1</option>
-                            <option value="2">ዲቪዥን 2</option>
-                            <option value="3">ዲቪዥን 3</option>
-                            <option value="4">ዲቪዥን 4</option>
+                    <div class="flex items-center gap-2 w-full md:w-auto justify-between md:justify-start bg-white/80 backdrop-blur-xl p-2.5 rounded-2xl border border-white/90 shadow-xl">
+                        <span class="text-[10px] sm:text-xs font-black text-slate-900 whitespace-nowrap pl-1 uppercase"><i class="fa-solid fa-filter text-amber-600"></i> FILTER</span>
+                        <select id="matrixDivisionFilter" onchange="renderMatrix()" class="px-3 py-2 bg-white/95 border border-amber-300 rounded-xl text-[10px] sm:text-xs font-black text-slate-950 focus:outline-none focus:ring-2 focus:ring-amber-500 shadow-sm cursor-pointer uppercase">
+                            <option value="all">ALL DIVISIONS</option>
+                            <option value="1">DIVISION 1</option>
+                            <option value="2">DIVISION 2</option>
+                            <option value="3">DIVISION 3</option>
+                            <option value="4">DIVISION 4</option>
                         </select>
                     </div>
                 </div>
             </div>
 
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
-                <div class="relative overflow-hidden p-3.5 rounded-2xl flex items-center gap-3 border border-amber-400 bg-gradient-to-r from-amber-300 to-yellow-400 text-amber-950 shadow-lg liquid-glass-card">
-                    <div class="w-9 h-9 rounded-xl bg-white/90 text-amber-950 flex items-center justify-center font-black text-xs shadow-md shrink-0 border border-amber-500 liquid-glass-icon"><i class="fa-solid fa-sun"></i></div>
+                <div class="relative overflow-hidden p-4 rounded-2xl flex items-center gap-3 border-2 border-amber-500 bg-gradient-to-r from-amber-300 via-amber-200 to-yellow-300 text-amber-950 shadow-xl uppercase">
+                    <div class="w-10 h-10 rounded-xl bg-white text-amber-950 flex items-center justify-center font-black text-sm shadow-md shrink-0 border-2 border-amber-500"><i class="fa-solid fa-sun"></i></div>
                     <div class="min-w-0">
-                        <div class="text-[8px] uppercase font-black text-amber-900 tracking-wider">Morning (ጠዋት)</div>
-                        <div class="text-[9px] sm:text-[10px] font-black text-amber-950 truncate">11:30 - 07:30 (05:30 - 01:30)</div>
+                        <div class="text-[9px] uppercase font-black text-amber-950 tracking-wider">MORNING</div>
+                        <div class="text-[11px] sm:text-xs font-black text-amber-950 truncate tracking-tight">11:30 - 07:30 (05:30 - 01:30)</div>
                     </div>
                 </div>
-                <div class="relative overflow-hidden p-3.5 rounded-2xl flex items-center gap-3 border border-sky-400 bg-gradient-to-r from-sky-300 to-blue-400 text-sky-950 shadow-lg liquid-glass-card">
-                    <div class="w-9 h-9 rounded-xl bg-white/90 text-sky-950 flex items-center justify-center font-black text-xs shadow-md shrink-0 border border-sky-500 liquid-glass-icon"><i class="fa-solid fa-moon"></i></div>
+                <div class="relative overflow-hidden p-4 rounded-2xl flex items-center gap-3 border-2 border-sky-500 bg-gradient-to-r from-sky-300 via-sky-200 to-blue-300 text-sky-950 shadow-xl uppercase">
+                    <div class="w-10 h-10 rounded-xl bg-white text-sky-950 flex items-center justify-center font-black text-sm shadow-md shrink-0 border-2 border-sky-500"><i class="fa-solid fa-moon"></i></div>
                     <div class="min-w-0">
-                        <div class="text-[8px] uppercase font-black text-sky-900 tracking-wider">Evening (ቀን-ማታ)</div>
-                        <div class="text-[9px] sm:text-[10px] font-black text-sky-950 truncate">7:30 - 3:30 (01:30 - 9:30)</div>
+                        <div class="text-[9px] uppercase font-black text-sky-950 tracking-wider">EVENING</div>
+                        <div class="text-[11px] sm:text-xs font-black text-sky-950 truncate tracking-tight">7:30 - 3:30 (01:30 - 9:30)</div>
                     </div>
                 </div>
-                <div class="relative overflow-hidden p-3.5 rounded-2xl flex items-center gap-3 border border-slate-700 bg-gradient-to-r from-slate-900 to-indigo-950 text-amber-300 shadow-lg liquid-glass-card">
-                    <div class="w-9 h-9 rounded-xl bg-slate-800 text-amber-300 flex items-center justify-center font-black text-xs shadow-md shrink-0 border border-slate-700 liquid-glass-icon"><i class="fa-solid fa-star"></i></div>
+                <div class="relative overflow-hidden p-4 rounded-2xl flex items-center gap-3 border-2 border-slate-800 bg-gradient-to-r from-slate-900 via-slate-950 to-indigo-950 text-amber-300 shadow-xl uppercase">
+                    <div class="w-10 h-10 rounded-xl bg-slate-900 text-amber-300 flex items-center justify-center font-black text-sm shadow-md shrink-0 border-2 border-amber-400"><i class="fa-solid fa-star"></i></div>
                     <div class="min-w-0">
-                        <div class="text-[8px] uppercase font-black text-slate-300 tracking-wider">Night (ለሊት)</div>
-                        <div class="text-[9px] sm:text-[10px] font-black text-amber-300 truncate">3:30 - 11:30 (9:30 - 05:30)</div>
+                        <div class="text-[9px] uppercase font-black text-amber-200 tracking-wider">NIGHT</div>
+                        <div class="text-[11px] sm:text-xs font-black text-amber-300 truncate tracking-tight">3:30 - 11:30 (9:30 - 05:30)</div>
                     </div>
                 </div>
-                <div class="relative overflow-hidden p-3.5 rounded-2xl flex items-center gap-3 border border-emerald-400 bg-gradient-to-r from-emerald-300 to-teal-400 text-emerald-950 shadow-lg liquid-glass-card">
-                    <div class="w-9 h-9 rounded-xl bg-white/90 text-emerald-950 flex items-center justify-center font-black text-xs shadow-md shrink-0 border border-emerald-500 liquid-glass-icon"><i class="fa-solid fa-mug-hot"></i></div>
+                <div class="relative overflow-hidden p-4 rounded-2xl flex items-center gap-3 border-2 border-emerald-500 bg-gradient-to-r from-emerald-300 via-emerald-200 to-teal-300 text-emerald-950 shadow-xl uppercase">
+                    <div class="w-10 h-10 rounded-xl bg-white text-emerald-950 flex items-center justify-center font-black text-sm shadow-md shrink-0 border-2 border-emerald-500"><i class="fa-solid fa-mug-hot"></i></div>
                     <div class="min-w-0">
-                        <div class="text-[8px] uppercase font-black text-emerald-900 tracking-wider">Day Off (እረፍት)</div>
-                        <div class="text-[9px] sm:text-[10px] font-black text-emerald-950 truncate">24 hours (ሙሉ ቀን እረፍት)</div>
+                        <div class="text-[9px] uppercase font-black text-emerald-950 tracking-wider">DAY OFF</div>
+                        <div class="text-[11px] sm:text-xs font-black text-emerald-950 truncate tracking-tight">24 HOURS FULL DAY OFF</div>
                     </div>
                 </div>
             </div>
 
-            <div class="watercolor-glass-matrix rounded-[28px] shadow-2xl overflow-hidden p-3 sm:p-4 liquid-glass-card">
-                <div class="overflow-x-auto rounded-xl bg-white/70 backdrop-blur-xl border border-white/90 shadow-inner liquid-glass-card">
+            <div class="rounded-[28px] shadow-2xl overflow-hidden p-4 sm:p-6 border border-white/90 bg-white/90 backdrop-blur-xl">
+                <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-200/80">
+                    <div class="flex items-center gap-2.5">
+                        <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-amber-500 to-yellow-600 text-slate-950 flex items-center justify-center font-black text-xs shadow-md">
+                            <i class="fa-solid fa-calendar-week"></i>
+                        </div>
+                        <h3 class="text-xs sm:text-sm font-black text-slate-900 uppercase tracking-wide">MASTER SHIFT CALENDAR</h3>
+                    </div>
+                    <span class="text-[10px] font-black text-slate-600 bg-slate-100 px-3 py-1 rounded-xl border border-slate-200 uppercase">28 DAYS MATRIX</span>
+                </div>
+                <div class="overflow-x-auto rounded-2xl bg-white/95 backdrop-blur-2xl border border-slate-200/80 shadow-inner p-2">
                     <table class="w-full text-left border-collapse" id="matrixTable">
                     </table>
                 </div>
@@ -228,64 +197,63 @@
         </section>
 
         <section id="tab-lookup" class="space-y-4 hidden">
-            <div class="relative overflow-hidden rounded-[24px] p-3.5 sm:p-5 text-slate-900 shadow-xl max-w-xl mx-auto border border-sky-300/60 bg-gradient-to-br from-white/90 via-sky-50/70 to-teal-50/70 backdrop-blur-2xl liquid-glass-card">
-                <div class="absolute -right-16 -top-16 w-40 h-40 bg-sky-400/15 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="relative overflow-hidden rounded-[30px] p-4 sm:p-5 text-slate-900 shadow-2xl max-w-sm mx-auto border border-sky-300/80 bg-gradient-to-br from-white/95 via-sky-50/90 to-teal-50/90 backdrop-blur-2xl">
+                <div class="absolute -right-16 -top-16 w-36 h-36 bg-sky-400/20 rounded-full blur-3xl pointer-events-none"></div>
 
-                <div class="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-3 mb-3 pb-2.5 border-b border-sky-900/10">
-                    <div class="flex items-center gap-2 text-center sm:text-left">
-                        <div class="w-8 h-8 bg-gradient-to-tr from-sky-500 to-indigo-600 text-white rounded-xl flex items-center justify-center text-xs font-black shadow-lg shadow-sky-500/20 border border-white/60 shrink-0 liquid-glass-icon">
-                            <i class="fa-solid fa-magnifying-glass-chart"></i>
-                        </div>
-                        <div>
-                            <div class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[7px] font-black bg-sky-500/15 text-sky-950 border border-sky-400/30 mb-0.5 liquid-glass-card">
-                                <i class="fa-solid fa-bolt text-sky-700"></i> የፈረቃ ፍለጋ
-                            </div>
-                            <h2 class="text-xs sm:text-sm font-black tracking-tight text-indigo-950">የፈረቃ ቀን ማረጋገጫ</h2>
-                        </div>
+                <div class="relative z-10 flex flex-col items-center text-center mb-3.5 pb-3 border-b border-sky-900/10">
+                    <div class="w-10 h-10 bg-gradient-to-tr from-sky-500 to-indigo-600 text-white rounded-2xl flex items-center justify-center text-xs font-black shadow-lg shadow-sky-500/20 border border-white/60 mb-2">
+                        <i class="fa-solid fa-magnifying-glass-chart"></i>
                     </div>
-
-                    <div class="w-full sm:w-auto flex items-center justify-center gap-1.5 bg-gradient-to-r from-sky-500/10 via-teal-500/10 to-indigo-500/10 backdrop-blur-xl p-2 rounded-xl border border-sky-300/80 shadow-md liquid-glass-card">
-                        <div class="relative w-full sm:w-36">
-                            <i class="fa-solid fa-magnifying-glass absolute left-2.5 top-2 text-sky-600 text-[10px]"></i>
-                            <input type="date" id="lookupDateInput" class="w-full pl-7 pr-2 py-1 bg-white/95 border border-sky-400 rounded-lg font-black text-indigo-950 text-[10px] shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-500 cursor-pointer liquid-glass-card">
-                        </div>
-                        <button onclick="performLookup()" class="px-3 py-1 bg-gradient-to-r from-sky-600 to-blue-700 hover:from-sky-500 hover:to-blue-600 text-white font-black text-[10px] rounded-lg shadow-md shadow-sky-600/30 transition flex items-center justify-center gap-1 whitespace-nowrap active:scale-95 border border-white/30 liquid-glass-card">
-                            <i class="fa-solid fa-magnifying-glass"></i> ፈልግ
-                        </button>
+                    <div class="inline-flex items-center gap-1 px-3 py-0.5 rounded-full text-[8px] font-black bg-sky-500/15 text-sky-950 border border-sky-400/30 mb-1 uppercase">
+                        <i class="fa-solid fa-bolt text-sky-700"></i> SHIFT LOOKUP
                     </div>
+                    <h2 class="text-sm font-black tracking-tight text-indigo-950 uppercase">የፈረቃ ቀን ማረጋገጫ</h2>
                 </div>
 
-                <div id="lookupResultContainer" class="relative z-10 space-y-3">
-                    <div class="p-5 text-center bg-white/50 backdrop-blur-md rounded-xl border border-sky-200 text-slate-600 font-bold text-[11px] liquid-glass-card">
-                        <i class="fa-solid fa-arrow-up text-sky-600 text-sm mb-1.5 block"></i>
-                        እባክዎ ቀን በመምረጥ 'ፈልግ' የሚለውን ቁልፍ ይጫኑ።
+                <div class="relative z-10 space-y-2.5">
+                    <div class="space-y-1">
+                        <label class="block text-[10px] font-black text-sky-950 uppercase"><i class="fa-solid fa-calendar text-sky-600"></i> SELECT DATE</label>
+                        <div class="relative">
+                            <i class="fa-solid fa-calendar-day absolute left-3.5 top-3 text-sky-600 text-xs"></i>
+                            <input type="date" id="lookupDateInput" class="w-full pl-10 pr-3 py-2.5 bg-white/95 border border-sky-300 rounded-xl font-black text-indigo-950 text-xs shadow-inner focus:outline-none focus:ring-2 focus:ring-sky-500 cursor-pointer uppercase">
+                        </div>
                     </div>
+                    <button onclick="performLookup()" class="w-full py-2.5 bg-gradient-to-r from-sky-600 via-blue-600 to-sky-700 hover:from-sky-500 hover:to-blue-600 text-white font-black text-xs rounded-xl shadow-lg shadow-sky-600/30 transition flex items-center justify-center gap-2 active:scale-95 border border-white/30 uppercase">
+                        <i class="fa-solid fa-magnifying-glass text-xs"></i> SEARCH
+                    </button>
+                </div>
+            </div>
+
+            <div id="lookupResultContainer" class="relative z-10 space-y-3 max-w-xl mx-auto">
+                <div class="p-6 text-center bg-white/60 backdrop-blur-md rounded-2xl border border-sky-200 text-slate-800 font-extrabold text-xs uppercase">
+                    <i class="fa-solid fa-arrow-up text-sky-600 text-base mb-2 block"></i>
+                    PLEASE SELECT A DATE ABOVE AND CLICK 'SEARCH'
                 </div>
             </div>
         </section>
 
         <section id="tab-admin" class="space-y-5 hidden">
             
-            <div id="adminLockedView" class="relative overflow-hidden rounded-[32px] p-6 sm:p-10 shadow-2xl border border-white/90 text-slate-900 max-w-md mx-auto text-center watercolor-glass-matrix liquid-glass-card" style="background: linear-gradient(135deg, rgba(224, 242, 254, 0.9) 0%, rgba(204, 251, 241, 0.85) 50%, rgba(254, 243, 199, 0.8) 100%);">
+            <div id="adminLockedView" class="relative overflow-hidden rounded-[32px] p-6 sm:p-10 shadow-2xl border border-white/90 text-slate-900 max-w-md mx-auto text-center" style="background: linear-gradient(135deg, rgba(224, 242, 254, 0.9) 0%, rgba(204, 251, 241, 0.85) 50%, rgba(254, 243, 199, 0.8) 100%);">
                 
                 <div class="absolute -left-16 -top-16 w-48 h-48 bg-sky-400/20 rounded-full blur-3xl pointer-events-none"></div>
                 <div class="absolute -right-16 -bottom-16 w-48 h-48 bg-teal-400/20 rounded-full blur-3xl pointer-events-none"></div>
 
                 <div class="relative z-10">
-                    <div class="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-tr from-sky-500 to-teal-600 text-white rounded-2xl mx-auto flex items-center justify-center text-xl sm:text-2xl font-black shadow-xl shadow-sky-500/30 mb-4 border border-white/60 liquid-glass-icon">
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-tr from-sky-500 to-teal-600 text-white rounded-2xl mx-auto flex items-center justify-center text-xl sm:text-2xl font-black shadow-xl shadow-sky-500/30 mb-4 border border-white/60">
                         <i class="fa-solid fa-lock"></i>
                     </div>
-                    <div class="inline-flex items-center gap-1 px-3 py-0.5 rounded-full text-[9px] font-black bg-sky-500/15 text-sky-950 border border-sky-400/30 mb-2 liquid-glass-card">
-                        <i class="fa-solid fa-shield-halved text-sky-700"></i> ደህንነቱ የተጠበቀ መግቢያ
+                    <div class="inline-flex items-center gap-1 px-3 py-0.5 rounded-full text-[9px] font-black bg-sky-500/15 text-sky-950 border border-sky-400/30 mb-2 uppercase">
+                        <i class="fa-solid fa-shield-halved text-sky-700"></i> SECURE LOGIN
                     </div>
-                    <h3 class="text-sm sm:text-xl font-black text-sky-950 tracking-tight mb-1">ADMIN PASSCODE</h3>
+                    <h3 class="text-sm sm:text-xl font-black text-sky-950 tracking-tight mb-1 uppercase">ADMIN PASSCODE</h3>
                     
                     <form onsubmit="handleAdminLogin(event)" class="space-y-3 mt-4">
                         <div class="relative">
                             <i class="fa-solid fa-key absolute left-4 top-3 text-sky-600 text-xs"></i>
-                            <input type="password" id="adminPasswordInput" placeholder="Password..." class="w-full pl-10 pr-4 py-3 bg-white/90 backdrop-blur-md border border-sky-300 rounded-xl text-center font-black text-xs sm:text-sm tracking-widest text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500 shadow-inner liquid-glass-card" required>
+                            <input type="password" id="adminPasswordInput" placeholder="Password" class="w-full pl-10 pr-4 py-3 bg-white/95 backdrop-blur-md border border-sky-300 rounded-xl text-center font-black text-xs sm:text-sm tracking-widest text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500 shadow-inner" required>
                         </div>
-                        <button type="submit" class="w-full py-3 bg-gradient-to-r from-sky-600 via-blue-600 to-sky-700 hover:from-sky-500 hover:to-blue-600 text-white font-black text-xs rounded-xl shadow-xl shadow-sky-600/30 transition transform active:scale-95 flex items-center justify-center gap-2 border border-white/40 liquid-glass-card">
+                        <button type="submit" class="w-full py-3 bg-gradient-to-r from-sky-600 via-blue-600 to-sky-700 hover:from-sky-500 hover:to-blue-600 text-white font-black text-xs rounded-xl shadow-xl shadow-sky-600/30 transition transform active:scale-95 flex items-center justify-center gap-2 border border-white/40 uppercase">
                             <i class="fa-solid fa-right-to-bracket text-xs"></i> LOGIN ADMIN
                         </button>
                     </form>
@@ -293,113 +261,112 @@
             </div>
 
             <div id="adminUnlockedView" class="hidden space-y-5">
-                <div class="watercolor-glass-matrix p-5 sm:p-8 rounded-[32px] relative overflow-hidden shadow-2xl border border-white/90 liquid-glass-card">
+                <div class="p-5 sm:p-8 rounded-[32px] relative overflow-hidden shadow-2xl border border-white/90" style="background: linear-gradient(135deg, rgba(240, 249, 255, 0.9) 0%, rgba(204, 251, 241, 0.85) 100%);">
                     <div class="absolute -right-20 -top-20 w-64 h-64 bg-teal-400/20 rounded-full blur-3xl pointer-events-none"></div>
                     <div class="absolute -left-20 -bottom-20 w-64 h-64 bg-sky-400/20 rounded-full blur-3xl pointer-events-none"></div>
 
                     <div class="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-6 pb-4 border-b border-sky-900/15">
                         <div>
-                            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[9px] font-black bg-gradient-to-r from-sky-600 to-teal-600 text-white shadow-md shadow-sky-500/20 border border-white/40 mb-1.5 liquid-glass-card">
-                                <i class="fa-solid fa-sliders"></i> የስርዓት አስተዳደር ማዕከል
+                            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[9px] font-black bg-gradient-to-r from-sky-600 to-teal-600 text-white shadow-md shadow-sky-500/20 border border-white/40 mb-1.5 uppercase">
+                                <i class="fa-solid fa-sliders"></i> SYSTEM MANAGEMENT CENTER
                             </div>
-                            <h2 class="text-lg sm:text-2xl font-black text-slate-900 tracking-tight">የስርዓት አስተዳደር ማስተካከያ</h2>
-                            <p class="text-[10px] sm:text-xs text-slate-700 font-bold mt-0.5">የዲቨሎፐር ፎቶ እና የሚስጥራዊ ቁጥር አስተዳደር።</p>
+                            <h2 class="text-lg sm:text-2xl font-black text-slate-900 tracking-tight uppercase">SYSTEM ADMINISTRATION & ADJUSTMENTS</h2>
+                            <p class="text-[10px] sm:text-xs text-slate-900 font-extrabold mt-0.5 uppercase">SECURE PASSWORD ADMINISTRATION AND SHIFT PATTERN CONFIGURATION</p>
                         </div>
-                        <button onclick="lockAdmin()" class="px-4 py-2 bg-gradient-to-r from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 text-white font-black text-xs rounded-xl transition shadow-lg flex items-center gap-2 border border-white/20 active:scale-95 liquid-glass-card">
-                            <i class="fa-solid fa-lock text-sky-400 text-[10px]"></i> ፓነሉን ቆልፍ
+                        <button onclick="lockAdmin()" class="px-4 py-2 bg-gradient-to-r from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 text-white font-black text-xs rounded-xl transition shadow-lg flex items-center gap-2 border border-white/20 active:scale-95 uppercase">
+                            <i class="fa-solid fa-lock text-sky-400 text-[10px]"></i> LOCK PANEL
                         </button>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-5 relative z-10 max-w-4xl mx-auto">
                         
-                        <div class="p-5 rounded-[24px] shadow-xl border border-sky-300/80 backdrop-blur-2xl transition-all hover:scale-[1.005] liquid-glass-card" style="background: linear-gradient(135deg, rgba(224, 242, 254, 0.9) 0%, rgba(204, 251, 241, 0.85) 100%);">
-                            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-4">
+                        <div class="p-6 rounded-[32px] shadow-2xl border border-sky-300/80 backdrop-blur-3xl transition-all hover:scale-[1.005] relative overflow-hidden uppercase" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(224, 242, 254, 0.88) 50%, rgba(204, 251, 241, 0.9) 100%); box-shadow: 0 25px 50px -12px rgba(14, 165, 233, 0.25), 0 0 1px 1px rgba(255, 255, 255, 0.9) inset;">
+                            <div class="absolute -right-16 -top-16 w-36 h-36 bg-emerald-400/20 rounded-full blur-2xl pointer-events-none"></div>
+
+                            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-4 relative z-10">
                                 <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400 to-teal-500 text-white flex items-center justify-center shadow-lg shadow-emerald-500/30 text-xs font-bold border border-white liquid-glass-icon">
+                                    <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-emerald-400 to-teal-500 text-white flex items-center justify-center shadow-lg shadow-emerald-500/30 text-xs font-bold border border-white">
                                         <i class="fa-solid fa-users-viewfinder"></i>
                                     </div>
                                     <div>
-                                        <h3 class="text-xs sm:text-sm font-black text-slate-900 uppercase tracking-wide">የኦንላይን ተጠቃሚዎች ክትትል</h3>
-                                        <p class="text-[9px] sm:text-[10px] text-slate-600 font-bold">በአሁኑ ሰዓት ድህረ ገጹን እየተጠቀሙ ያሉ ሰዎች (24 ሰዓት)</p>
+                                        <h3 class="text-xs sm:text-sm font-black text-slate-900 uppercase tracking-wide">ONLINE USERS MONITORING</h3>
+                                        <p class="text-[9px] sm:text-[10px] text-slate-800 font-extrabold uppercase">ACTIVE USERS IN THE LAST 24 HOURS</p>
                                     </div>
                                 </div>
-                                <button onclick="refreshOnlineUsers()" class="px-3 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-black text-[10px] rounded-xl shadow transition flex items-center gap-1.5 active:scale-95 border border-white/40 liquid-glass-card">
-                                    <i class="fa-solid fa-rotate"></i> አድስ
+                                <button onclick="refreshOnlineUsers()" class="px-3 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-black text-[10px] rounded-xl shadow transition flex items-center gap-1.5 active:scale-95 border border-white/40 uppercase">
+                                    <i class="fa-solid fa-rotate"></i> REFRESH
                                 </button>
                             </div>
 
-                            <div class="bg-white/90 rounded-xl border border-sky-200 p-3 shadow-inner liquid-glass-card">
-                                <div class="flex items-center justify-between mb-2.5 pb-1.5 border-b border-sky-200 text-[10px] font-black text-slate-700">
-                                    <span>ተጠቃሚ / ID</span>
-                                    <span>ሰዓት</span>
-                                    <span>እርምጃ</span>
+                            <div class="bg-white/95 rounded-2xl border border-sky-200 p-3 shadow-inner relative z-10">
+                                <div class="flex items-center justify-between mb-2.5 pb-1.5 border-b border-sky-200 text-[10px] font-black text-slate-900 uppercase">
+                                    <span>USER / ID</span>
+                                    <span>TIME</span>
+                                    <span>ACTION</span>
                                 </div>
-                                <div id="onlineUsersList" class="space-y-2 max-h-40 overflow-y-auto custom-scrollbar">
+                                <div id="onlineUsersList" class="space-y-2 max-h-40 overflow-y-auto custom-scrollbar uppercase text-[10px]">
                                 </div>
                             </div>
                         </div>
 
-                        <div class="p-5 rounded-[24px] shadow-xl border border-indigo-300/80 backdrop-blur-2xl transition-all hover:scale-[1.005] liquid-glass-card" style="background: linear-gradient(135deg, rgba(238, 242, 255, 0.9) 0%, rgba(224, 242, 254, 0.85) 100%);">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-500 to-indigo-600 text-white flex items-center justify-center shadow-lg shadow-teal-500/30 text-xs font-bold border border-white liquid-glass-icon">
+                        <div class="p-6 rounded-[32px] shadow-2xl border border-indigo-300/80 backdrop-blur-3xl transition-all hover:scale-[1.005] relative overflow-hidden uppercase" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(238, 242, 255, 0.88) 50%, rgba(224, 242, 254, 0.9) 100%); box-shadow: 0 25px 50px -12px rgba(99, 102, 241, 0.25), 0 0 1px 1px rgba(255, 255, 255, 0.9) inset;">
+                            <div class="absolute -right-16 -top-16 w-36 h-36 bg-indigo-400/20 rounded-full blur-2xl pointer-events-none"></div>
+
+                            <div class="flex items-center gap-3 mb-4 relative z-10">
+                                <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-teal-500 to-indigo-600 text-white flex items-center justify-center shadow-lg shadow-teal-500/30 text-xs font-bold border border-white">
                                     <i class="fa-solid fa-user-shield"></i>
                                 </div>
                                 <div>
-                                    <h3 class="text-xs sm:text-sm font-black text-slate-900 uppercase tracking-wide">የዲቨሎፐር ፎቶ እና ሚስጥራዊ ቁጥር ማስተካከያ</h3>
-                                    <p class="text-[9px] sm:text-[10px] text-slate-600 font-bold">ፎቶ እና የይለፍ ቃላት ማስተካከያ (Unified Settings)</p>
+                                    <h3 class="text-xs sm:text-sm font-black text-slate-900 uppercase tracking-wide">PASSWORD & SECURITY SETTINGS</h3>
+                                    <p class="text-[9px] sm:text-[10px] text-slate-800 font-extrabold uppercase">ADMINISTRATOR AND SITE ACCESS PASSWORD MANAGEMENT</p>
                                 </div>
                             </div>
 
-                            <form onsubmit="updateDeveloperAndPasswords(event)" class="space-y-3">
+                            <form onsubmit="updateDeveloperAndPasswords(event)" class="space-y-3 relative z-10">
                                 <div class="space-y-1">
-                                    <label class="block text-[10px] sm:text-xs font-black text-slate-800">የዲቨሎፐር ፎቶ ይምረጡ (File):</label>
-                                    <input type="file" id="devPhotoFileInput" accept="image/*" onchange="handleDevPhotoFileUpload(event)" class="w-full text-xs text-slate-700 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-[10px] file:font-black file:bg-teal-400 file:text-slate-950 hover:file:bg-teal-300 cursor-pointer bg-white/90 p-1 rounded-xl border border-teal-200 shadow-inner liquid-glass-card">
+                                    <label class="block text-[10px] sm:text-xs font-black text-slate-900 uppercase">NEW ADMIN PASSWORD</label>
+                                    <input type="password" id="settingAdminPass" placeholder="NEW ADMIN PASSWORD" class="w-full px-3 py-2 bg-white/95 border border-indigo-200 rounded-xl text-[10px] sm:text-xs font-black text-slate-900 shadow-inner focus:outline-none focus:ring-2 focus:ring-indigo-500">
                                 </div>
                                 <div class="space-y-1">
-                                    <label class="block text-[10px] sm:text-xs font-black text-slate-800">ወይም የፎቶ ሊንክ (Image URL):</label>
-                                    <input type="url" id="settingDevPhotoUrl" placeholder="https://..." class="w-full px-3 py-2 bg-white/90 border border-teal-200 rounded-xl text-[10px] font-black text-slate-900 shadow-inner focus:outline-none focus:ring-2 focus:ring-teal-500 liquid-glass-card">
+                                    <label class="block text-[10px] sm:text-xs font-black text-slate-900 uppercase">NEW SITE ACCESS PASSWORD</label>
+                                    <input type="text" id="settingSitePass" placeholder="SITE ENTRY PASSCODE" class="w-full px-3 py-2 bg-white/95 border border-sky-200 rounded-xl text-[10px] sm:text-xs font-black text-slate-900 shadow-inner focus:outline-none focus:ring-2 focus:ring-sky-500">
                                 </div>
-                                <div class="space-y-1">
-                                    <label class="block text-[10px] sm:text-xs font-black text-slate-800">አዲስ የአስተዳዳሪ Password:</label>
-                                    <input type="password" id="settingAdminPass" placeholder="አስተዳዳሪ አዲስ password..." class="w-full px-3 py-2 bg-white/90 border border-indigo-200 rounded-xl text-[10px] sm:text-xs font-black text-slate-900 shadow-inner focus:outline-none focus:ring-2 focus:ring-indigo-500 liquid-glass-card">
-                                </div>
-                                <div class="space-y-1">
-                                    <label class="block text-[10px] sm:text-xs font-black text-slate-800">አዲስ መግቢያ Password (Site Access):</label>
-                                    <input type="text" id="settingSitePass" placeholder="ድህረ ገጹን ሲከፍቱ የሚጠይቀው password..." class="w-full px-3 py-2 bg-white/90 border border-sky-200 rounded-xl text-[10px] sm:text-xs font-black text-slate-900 shadow-inner focus:outline-none focus:ring-2 focus:ring-sky-500 liquid-glass-card">
-                                </div>
-                                <button type="submit" class="w-full py-3 bg-gradient-to-r from-teal-600 via-blue-600 to-indigo-700 hover:from-teal-500 hover:to-indigo-600 text-white font-black text-xs rounded-xl shadow-xl shadow-indigo-600/30 transition transform active:scale-95 flex items-center justify-center gap-2 border border-white/40 liquid-glass-card">
-                                    <i class="fa-solid fa-floppy-disk"></i> ሁሉንም መረጃዎች አዘምን
+                                <button type="submit" class="w-full py-3 bg-gradient-to-r from-teal-600 via-blue-600 to-indigo-700 hover:from-teal-500 hover:to-indigo-600 text-white font-black text-xs rounded-xl shadow-xl shadow-indigo-600/30 transition transform active:scale-95 flex items-center justify-center gap-2 border border-white/40 uppercase">
+                                    <i class="fa-solid fa-floppy-disk"></i> UPDATE ALL SETTINGS
                                 </button>
                             </form>
                         </div>
 
-                        <div class="p-5 rounded-[24px] shadow-xl border border-amber-300/80 backdrop-blur-2xl md:col-span-2 transition-all hover:scale-[1.005] liquid-glass-card" style="background: linear-gradient(135deg, rgba(254, 243, 199, 0.9) 0%, rgba(224, 242, 254, 0.85) 100%);">
-                            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-4">
+                        <div class="p-6 rounded-[32px] shadow-2xl border border-amber-300/80 backdrop-blur-3xl md:col-span-2 transition-all hover:scale-[1.005] relative overflow-hidden uppercase" style="background: linear-gradient(135deg, rgba(255, 251, 235, 0.95) 0%, rgba(254, 243, 199, 0.92) 50%, rgba(254, 226, 226, 0.85) 100%); box-shadow: 0 30px 60px -15px rgba(245, 158, 11, 0.25), 0 0 2px 2px rgba(255, 255, 255, 0.95) inset;">
+                            <div class="absolute -right-20 -top-20 w-48 h-48 bg-amber-400/25 rounded-full blur-3xl pointer-events-none"></div>
+                            <div class="absolute -left-20 -bottom-20 w-48 h-48 bg-yellow-400/25 rounded-full blur-3xl pointer-events-none"></div>
+
+                            <div class="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-4 pb-3 border-b border-amber-900/15">
                                 <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-yellow-600 text-slate-950 flex items-center justify-center shadow-lg shadow-amber-500/30 text-xs font-bold border border-white liquid-glass-icon">
-                                        <i class="fa-solid fa-calendar-check"></i>
+                                    <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-amber-500 to-yellow-600 text-slate-950 flex items-center justify-center shadow-lg shadow-amber-500/30 text-xs font-bold border border-white">
+                                        <i class="fa-solid fa-calendar-check text-slate-950"></i>
                                     </div>
                                     <div>
-                                        <h3 class="text-xs sm:text-sm font-black text-slate-900 uppercase tracking-wide">የፈረቃ ማስተካከያ (Shift Pattern Adjustment)</h3>
-                                        <p class="text-[9px] sm:text-[10px] text-slate-600 font-bold">የ28 ቀናትን ፈረቃ ለእያንዳንዱ ዲቪዥን ሙሉ ስማቸው መቀየሪያ</p>
+                                        <h3 class="text-xs sm:text-sm font-black text-amber-950 uppercase tracking-wide">SHIFT PATTERN ADJUSTMENT</h3>
+                                        <p class="text-[9px] sm:text-[10px] text-amber-900 font-extrabold uppercase">CUSTOMIZE THE 28-DAY SHIFT SEQUENCE FOR EACH DIVISION</p>
                                     </div>
                                 </div>
                                 <div class="flex items-center gap-2">
-                                    <select id="adminDivSelect" onchange="loadDivisionPatternEditor()" class="px-3 py-1.5 bg-white/90 border border-amber-300 rounded-xl text-xs font-black text-slate-900 shadow-sm cursor-pointer liquid-glass-card">
-                                        <option value="1">ዲቪዥን 1</option>
-                                        <option value="2">ዲቪዥን 2</option>
-                                        <option value="3">ዲቪዥን 3</option>
-                                        <option value="4">ዲቪዥን 4</option>
+                                    <select id="adminDivSelect" onchange="loadDivisionPatternEditor()" class="px-3 py-2 bg-white/95 border border-amber-400 rounded-xl text-xs font-black text-amber-950 shadow-sm cursor-pointer focus:outline-none focus:ring-2 focus:ring-amber-500 uppercase">
+                                        <option value="1">DIVISION ONE</option>
+                                        <option value="2">DIVISION TWO</option>
+                                        <option value="3">DIVISION THEE</option>
+                                        <option value="4">DIVISION FOUR</option>
                                     </select>
                                 </div>
                             </div>
 
-                            <div class="bg-white/90 rounded-xl border border-amber-200 p-3 shadow-inner space-y-3 liquid-glass-card">
-                                <p class="text-[10px] font-bold text-slate-700">ከዚህ በታች ያሉትን 28 ቀናት ፈረቃ በሙሉ ስማቸው መምረጥ ይችላሉ:</p>
-                                <div id="adminPatternGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+                            <div class="relative z-10 bg-white/90 rounded-2xl border border-amber-200 p-4 shadow-inner space-y-4 backdrop-blur-xl">
+                                <p class="text-[10px] font-extrabold text-amber-950 uppercase">SELECT SHIFT STATUS FOR EACH OF THE 28 DAYS BELOW</p>
+                                <div id="adminPatternGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 max-h-72 overflow-y-auto custom-scrollbar pr-1 uppercase">
                                 </div>
-                                <button onclick="saveDivisionPattern()" class="w-full py-2.5 bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-400 hover:to-yellow-500 text-slate-950 font-black text-xs rounded-xl shadow-md transition flex items-center justify-center gap-2 border border-white/40 liquid-glass-card">
-                                    <i class="fa-solid fa-floppy-disk"></i> የዚህን ዲቪዥን ፈረቃ ዑደት አዘምን
+                                <button onclick="saveDivisionPattern()" class="w-full py-3 bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 hover:from-amber-400 hover:to-yellow-500 text-slate-950 font-black text-xs rounded-xl shadow-xl shadow-amber-500/20 transition flex items-center justify-center gap-2 border border-white/60 uppercase">
+                                    <i class="fa-solid fa-floppy-disk"></i> UPDATE DIVISION SHIFT CYCLE
                                 </button>
                             </div>
                         </div>
@@ -411,59 +378,59 @@
 
     </main>
 
-    <footer class="bg-slate-950 text-slate-400 text-[10px] sm:text-xs border-t border-slate-800/80 py-4 mt-8 shadow-2xl">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p class="font-bold text-white">Shift Management System - Professional Roster Portal</p>
-            <p class="text-[9px] sm:text-[10px] text-slate-500 mt-0.5">© 2026 Shift Management System. All rights reserved.</p>
+    <footer class="bg-slate-950 text-slate-300 text-[10px] sm:text-xs border-t border-slate-800/80 py-4 mt-8 shadow-2xl uppercase">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center uppercase">
+            <p class="font-bold text-white uppercase">SHIFT MANAGEMENT SYSTEM - PROFESSIONAL ROSTER PORTAL</p>
+            <p class="text-[9px] sm:text-[10px] text-slate-400 mt-0.5 uppercase">© 2026 SHIFT MANAGEMENT SYSTEM. ALL RIGHTS RESERVED.</p>
         </div>
     </footer>
 
-    <div id="developerModal" class="fixed inset-0 bg-slate-950/85 backdrop-blur-2xl z-50 flex items-center justify-center p-4 hidden">
-        <div class="p-5 sm:p-6 rounded-[36px] shadow-2xl max-w-sm w-full relative animate-in fade-in zoom-in duration-300 overflow-hidden text-slate-900 border border-white/90 liquid-glass-card" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(240, 249, 255, 0.96) 50%, rgba(204, 251, 241, 0.94) 100%); backdrop-blur-3xl; box-shadow: 0 35px 60px -15px rgba(14, 165, 233, 0.35), 0 0 2px 2px rgba(255, 255, 255, 0.98) inset;">
+    <div id="developerModal" class="fixed inset-0 bg-slate-950/85 backdrop-blur-2xl z-50 flex items-center justify-center p-4 hidden uppercase">
+        <div class="p-5 sm:p-6 rounded-[36px] shadow-2xl max-w-sm w-full relative animate-in fade-in zoom-in duration-300 overflow-hidden text-slate-900 border border-white/90" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(240, 249, 255, 0.96) 50%, rgba(204, 251, 241, 0.94) 100%); backdrop-blur-3xl; box-shadow: 0 35px 60px -15px rgba(14, 165, 233, 0.35), 0 0 2px 2px rgba(255, 255, 255, 0.98) inset;">
             
             <div class="absolute -left-20 -top-20 w-40 h-40 bg-sky-400/20 rounded-full blur-3xl pointer-events-none"></div>
             <div class="absolute -right-20 -bottom-20 w-40 h-40 bg-teal-400/20 rounded-full blur-3xl pointer-events-none"></div>
 
             <div class="relative z-10 flex items-center justify-between mb-3">
                 <div class="w-6"></div>
-                <div class="inline-flex items-center justify-center gap-1.5 px-3.5 py-1 rounded-full text-[9px] font-black bg-gradient-to-r from-sky-600 to-teal-600 text-white shadow-md shadow-sky-500/20 border border-white/50 mx-auto liquid-glass-card">
+                <div class="inline-flex items-center justify-center gap-1.5 px-3.5 py-1 rounded-full text-[9px] font-black bg-gradient-to-r from-sky-600 to-teal-600 text-white shadow-md shadow-sky-500/20 border border-white/50 mx-auto uppercase">
                     <i class="fa-solid fa-code text-teal-200 text-[9px]"></i> SYSTEM DEVELOPER
                 </div>
-                <button onclick="closeDeveloperModal()" class="text-slate-500 hover:text-slate-950 w-7 h-7 rounded-full bg-white/90 hover:bg-white flex items-center justify-center font-bold text-xs transition shadow-md border border-sky-200 shrink-0 active:scale-95 liquid-glass-icon">
+                <button onclick="closeDeveloperModal()" class="text-slate-700 hover:text-slate-950 w-7 h-7 rounded-full bg-white/90 hover:bg-white flex items-center justify-center font-bold text-xs transition shadow-md border border-sky-200 shrink-0 active:scale-95">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
 
             <div class="relative z-10 space-y-3.5 text-center">
                 <div class="flex flex-col items-center justify-center">
-                    <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden p-1 bg-gradient-to-tr from-sky-400 via-teal-400 to-indigo-500 shadow-xl hover:scale-105 transition-transform duration-300 border-2 border-white/90 liquid-glass-card">
+                    <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden p-1 bg-gradient-to-tr from-sky-400 via-teal-400 to-indigo-500 shadow-xl hover:scale-105 transition-transform duration-300 border-2 border-white/90">
                         <img id="modalDeveloperImg" src="https://pbs.twimg.com/profile_images/2105866869236211712/Vn_SwaVg_400x400.jpg" alt="Awel Feyisa" class="w-full h-full object-cover object-top rounded-lg bg-white shadow-inner">
                     </div>
                 </div>
 
-                <div class="p-3 rounded-2xl backdrop-blur-2xl border border-sky-300/80 shadow-xl relative overflow-hidden liquid-glass-card" style="background: linear-gradient(135deg, rgba(224, 242, 254, 0.95) 0%, rgba(204, 251, 241, 0.9) 100%);">
+                <div class="p-3 rounded-2xl backdrop-blur-2xl border border-sky-300/80 shadow-xl relative overflow-hidden" style="background: linear-gradient(135deg, rgba(224, 242, 254, 0.95) 0%, rgba(204, 251, 241, 0.9) 100%);">
                     <div class="absolute -left-6 -top-6 w-16 h-16 bg-sky-400/20 rounded-full blur-xl pointer-events-none"></div>
-                    <h3 class="text-xs sm:text-sm font-black text-sky-950 tracking-tight">AWEL FEYISA MILKESO</h3>
-                    <p class="text-[7px] font-black text-teal-900 tracking-wider uppercase bg-white/90 px-3 py-1 rounded-full border border-teal-300/70 shadow-inner mt-1.5 inline-block liquid-glass-card">SYSTEM LEAD DEVELOPER</p>
+                    <h3 class="text-xs sm:text-sm font-black text-sky-950 tracking-tight uppercase">AWEL FEYISA MILKESO</h3>
+                    <p class="text-[7px] font-black text-teal-950 tracking-wider uppercase bg-white/95 px-3 py-1 rounded-full border border-teal-300 shadow-inner mt-1.5 inline-block">SYSTEM LEAD DEVELOPER</p>
                 </div>
 
                 <div class="space-y-2 pt-0.5">
-                    <a href="mailto:awelfeyisa23@gmail.com" class="flex items-center gap-3 p-3 rounded-2xl backdrop-blur-2xl border border-teal-300/80 shadow-md transition-all group hover:scale-[1.02] liquid-glass-card" style="background: linear-gradient(135deg, rgba(204, 251, 241, 0.95) 0%, rgba(224, 242, 254, 0.9) 100%);">
-                        <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-teal-500 to-cyan-600 text-white flex items-center justify-center text-xs shrink-0 shadow-md group-hover:rotate-12 transition border border-white/50 liquid-glass-icon">
+                    <a href="mailto:awelfeyisa23@gmail.com" class="flex items-center gap-3 p-3 rounded-2xl backdrop-blur-2xl border border-teal-300/80 shadow-md transition-all group hover:scale-[1.02]" style="background: linear-gradient(135deg, rgba(204, 251, 241, 0.95) 0%, rgba(224, 242, 254, 0.9) 100%);">
+                        <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-teal-500 to-cyan-600 text-white flex items-center justify-center text-xs shrink-0 shadow-md group-hover:rotate-12 transition border border-white/50">
                             <i class="fa-solid fa-envelope"></i>
                         </div>
                         <div class="min-w-0 text-left">
-                            <div class="text-[7px] uppercase font-black text-teal-900 tracking-wider">GMAIL ADDRESS</div>
+                            <div class="text-[7px] uppercase font-black text-teal-950 tracking-wider">GMAIL ADDRESS</div>
                             <div class="text-[10px] font-black text-teal-950 truncate">awelfeyisa23@gmail.com</div>
                         </div>
                     </a>
 
-                    <a href="tel:+251916015941" class="flex items-center gap-3 p-3 rounded-2xl backdrop-blur-2xl border border-sky-300/80 shadow-md transition-all group hover:scale-[1.02] liquid-glass-card" style="background: linear-gradient(135deg, rgba(224, 242, 254, 0.95) 0%, rgba(238, 242, 255, 0.9) 100%);">
-                        <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-sky-500 to-indigo-600 text-white flex items-center justify-center text-xs shrink-0 shadow-md group-hover:rotate-12 transition border border-white/50 liquid-glass-icon">
+                    <a href="tel:+251916015941" class="flex items-center gap-3 p-3 rounded-2xl backdrop-blur-2xl border border-sky-300/80 shadow-md transition-all group hover:scale-[1.02]" style="background: linear-gradient(135deg, rgba(224, 242, 254, 0.95) 0%, rgba(238, 242, 255, 0.9) 100%);">
+                        <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-sky-500 to-indigo-600 text-white flex items-center justify-center text-xs shrink-0 shadow-md group-hover:rotate-12 transition border border-white/50">
                             <i class="fa-solid fa-phone"></i>
                         </div>
                         <div class="min-w-0 text-left">
-                            <div class="text-[7px] uppercase font-black text-sky-900 tracking-wider">PHONE CONTACT</div>
+                            <div class="text-[7px] uppercase font-black text-sky-950 tracking-wider">PHONE CONTACT</div>
                             <div class="text-[10px] font-black text-sky-950 truncate">+251 916 015 941</div>
                         </div>
                     </a>
@@ -472,15 +439,16 @@
         </div>
     </div>
 
-    <div id="customMsgBox" class="fixed bottom-5 right-5 z-50 transform translate-y-32 opacity-0 transition-all duration-300 pointer-events-none">
-        <div class="flex items-center gap-2.5 px-4 py-3 bg-slate-900/95 backdrop-blur-xl text-white rounded-2xl shadow-2xl border border-white/20 text-xs font-black">
+    <div id="customMsgBox" class="fixed bottom-5 right-5 z-50 transform translate-y-32 opacity-0 transition-all duration-300 pointer-events-none uppercase">
+        <div class="flex items-center gap-2.5 px-4 py-3 bg-slate-900/95 backdrop-blur-xl text-white rounded-2xl shadow-2xl border border-white/20 text-xs font-black uppercase">
             <div id="msgBoxIcon" class="text-sm"></div>
             <div id="msgBoxText"></div>
         </div>
     </div>
 
     <script>
-        const SHIFT_START_DATE = new Date('2026-10-02');
+        const SHIFT_START_DATE_GREGORIAN = new Date('2026-10-02');
+        
         let SHIFT_PATTERNS = {
             1: ['E','N','O','M','E','E','O','E','E','E','O','N','N','N','O','M','M','M','O','M','M','M','O','N','N','N','O','E'],
             2: ['N','O','E','E','N','O','M','M','M','O','E','E','E','O','N','N','N','O','M','E','E','O','M','M','M','O','N','N'],
@@ -495,7 +463,7 @@
         };
 
         let isAdminLoggedIn = false;
-        let mySessionId = 'User_' + Math.random().toString(36).substring(2, 8).toUpperCase();
+        let mySessionId = 'USER_' + Math.random().toString(36).substring(2, 8);
         let currentStaffName = localStorage.getItem('shift_staff_name') || '';
 
         function openDeveloperModal() {
@@ -539,9 +507,6 @@
             const lookupInput = document.getElementById('lookupDateInput');
             if (lookupInput) lookupInput.valueAsDate = new Date();
 
-            const devUrlInput = document.getElementById('settingDevPhotoUrl');
-            if (devUrlInput) devUrlInput.value = systemSettings.directorPhoto;
-
             const adminPassInput = document.getElementById('settingAdminPass');
             if (adminPassInput) adminPassInput.value = systemSettings.adminPass;
 
@@ -561,7 +526,7 @@
 
             const now = new Date().toLocaleTimeString();
             const nowTimestamp = new Date().getTime();
-            const displayName = currentStaffName ? currentStaffName : ('Visitor (' + mySessionId + ')');
+            const displayName = currentStaffName ? currentStaffName.toUpperCase() : ('VISITOR (' + mySessionId + ')');
 
             const twentyFourHoursMs = 24 * 60 * 60 * 1000;
             onlineList = onlineList.filter(user => {
@@ -590,7 +555,7 @@
             const currentObj = onlineList.find(u => u.id === mySessionId);
             if(currentObj && currentObj.blocked) {
                 document.getElementById('siteLockModal').classList.remove('hidden');
-                showMsgBox("በአስተዳዳሪው ታግደዋል!", "error");
+                showMsgBox("ACCESS BLOCKED BY ADMINISTRATOR!", "error");
             }
 
             if(isAdminLoggedIn) {
@@ -600,7 +565,7 @@
 
         function refreshOnlineUsers() {
             renderOnlineUsersTable();
-            showMsgBox("የኦንላይን ተጠቃሚዎች ዝርዝር ታድሷል!");
+            showMsgBox("ONLINE USERS LIST REFRESHED!");
         }
 
         function renderOnlineUsersTable() {
@@ -622,24 +587,24 @@
             localStorage.setItem('shift_online_users', JSON.stringify(onlineList));
 
             if(onlineList.length === 0) {
-                container.innerHTML = '<div class="text-center text-slate-500 text-xs py-3">ምንም ኦንላይን ተጠቃሚ የለም።</div>';
+                container.innerHTML = '<div class="text-center text-slate-500 text-xs py-3 uppercase">NO ONLINE USERS AT THE MOMENT.</div>';
                 return;
             }
 
             let html = '';
             onlineList.forEach(user => {
                 html += `
-                    <div class="flex items-center justify-between bg-white p-2 rounded-xl border border-slate-100 shadow-sm text-xs font-bold text-slate-800">
+                    <div class="flex items-center justify-between bg-white p-2.5 rounded-xl border border-slate-100 shadow-sm text-xs font-bold text-slate-800 uppercase">
                         <div class="flex items-center gap-2">
                             <span class="w-2.5 h-2.5 rounded-full ${user.blocked ? 'bg-rose-500' : 'bg-emerald-500 animate-pulse'}"></span>
-                            <span>${user.name} ${user.id === mySessionId ? '(እርስዎ)' : ''}</span>
+                            <span>${user.name} ${user.id === mySessionId ? '(YOU)' : ''}</span>
                         </div>
                         <span class="text-slate-500 text-[10px]">${user.lastActive}</span>
                         <div>
-                            ${user.id === mySessionId ? '<span class="text-slate-400 text-[9px]">ራስዎ</span>' : 
+                            ${user.id === mySessionId ? '<span class="text-slate-400 text-[9px]">SELF</span>' : 
                                 (user.blocked ? 
-                                    `<button onclick="unblockUser('${user.id}')" class="px-2 py-0.5 bg-emerald-600 text-white rounded-lg text-[9px] font-black shadow hover:bg-emerald-500">አትንካ</button>` :
-                                    `<button onclick="blockUser('${user.id}')" class="px-2 py-0.5 bg-rose-600 text-white rounded-lg text-[9px] font-black shadow hover:bg-rose-500">አግድ</button>`
+                                    `<button onclick="unblockUser('${user.id}')" class="px-2 py-0.5 bg-emerald-600 text-white rounded-lg text-[9px] font-black shadow hover:bg-emerald-500 uppercase">UNBLOCK</button>` :
+                                    `<button onclick="blockUser('${user.id}')" class="px-2 py-0.5 bg-rose-600 text-white rounded-lg text-[9px] font-black shadow hover:bg-rose-500 uppercase">BLOCK</button>`
                                 )
                             }
                         </div>
@@ -661,7 +626,7 @@
                 user.blocked = true;
                 localStorage.setItem('shift_online_users', JSON.stringify(onlineList));
                 renderOnlineUsersTable();
-                showMsgBox(`ተጠቃሚ ${user.id} ታግዷል።`, "error");
+                showMsgBox(`USER ${user.id} HAS BEEN BLOCKED`, "error");
             }
         }
 
@@ -677,7 +642,7 @@
                 user.blocked = false;
                 localStorage.setItem('shift_online_users', JSON.stringify(onlineList));
                 renderOnlineUsersTable();
-                showMsgBox(`ተጠቃሚ ${user.id} እገዳው ተነስቷል።`);
+                showMsgBox(`USER ${user.id} HAS BEEN UNBLOCKED`);
             }
         }
 
@@ -689,7 +654,7 @@
             if(!passInput || !nameInput) return;
 
             if(passInput.value === systemSettings.sitePass) {
-                currentStaffName = nameInput.value.trim();
+                currentStaffName = nameInput.value.trim().toUpperCase();
                 localStorage.setItem('shift_staff_name', currentStaffName);
 
                 if(rememberBox && rememberBox.checked) {
@@ -699,9 +664,26 @@
 
                 document.getElementById('siteLockModal').classList.add('hidden');
                 registerOnlineUser();
-                showMsgBox(`እንኳን ደህና መጡ, ${currentStaffName}!`);
+                showMsgBox(`WELCOME, ${currentStaffName}!`);
             } else {
-                showMsgBox("የተሳሳተ የጣቢያ መግቢያ password!", "error");
+                showMsgBox("INCORRECT SITE ACCESS PASSWORD!", "error");
+            }
+        }
+
+        function handleAdminLogin(e) {
+            e.preventDefault();
+            const adminPassInput = document.getElementById('adminPasswordInput');
+            if(!adminPassInput) return;
+
+            if(adminPassInput.value === systemSettings.adminPass) {
+                isAdminLoggedIn = true;
+                document.getElementById('adminLockedView').classList.add('hidden');
+                document.getElementById('adminUnlockedView').classList.remove('hidden');
+                renderOnlineUsersTable();
+                loadDivisionPatternEditor();
+                showMsgBox("SUCCESSFULLY LOGGED IN AS ADMIN!");
+            } else {
+                showMsgBox("INCORRECT ADMIN PASSWORD!", "error");
             }
         }
 
@@ -733,14 +715,15 @@
             });
         }
 
-        function getEthiopianDateString(date) {
-            const baseGregorian = new Date('2026-10-02');
-            const diffTime = date.getTime() - baseGregorian.getTime();
+        function getDualCalendarString(date) {
+            const baseGregorian = new Date(SHIFT_START_DATE_GREGORIAN.getFullYear(), SHIFT_START_DATE_GREGORIAN.getMonth(), SHIFT_START_DATE_GREGORIAN.getDate());
+            const target = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+            const diffTime = target.getTime() - baseGregorian.getTime();
             const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
             
             let ethYear = 2019;
-            let ethMonth = 2; // Tikimt
-            let ethDay = 2 + diffDays;
+            let ethMonth = 1;
+            let ethDay = 22 + diffDays;
             
             while (ethDay > 30) {
                 ethDay -= 30;
@@ -759,10 +742,18 @@
                 }
             }
             
-            const months = ['', 'መስከረም', 'ጥቅምት', 'ህዳር', 'ታህሳስ', 'ጥር', 'የካቲት', 'መጋቢት', 'ሚያዚያ', 'ግንቦት', 'ሰኔ', 'ሀምሌ', 'ነሀሴ', 'ጳጉሜ'];
-            const weekdays = ['እሑድ', 'ሰኞ', 'ማክሰኞ', 'ረቡዕ', 'ሐሙስ', 'አርብ', 'ቅዳሜ'];
-            const dayOfWeek = weekdays[date.getDay()];
-            return `${dayOfWeek} - ${months[ethMonth] || 'ጥቅምት'} ${ethDay}, ${ethYear}`;
+            const monthsEth = ['', 'መስከረም', 'ጥቅምት', 'ህዳር', 'ታህሳስ', 'ጥር', 'የካቲት', 'መጋቢት', 'ሚያዚያ', 'ግንቦት', 'ሰኔ', 'ሀምሌ', 'ነሀሴ', 'ጳጉሜ'];
+            const weekdaysEth = ['እሑድ', 'ሰኞ', 'ማክሰኞ', 'ረቡዕ', 'ሐሙስ', 'አርብ', 'ቅዳሜ'];
+            const dayOfWeekEth = weekdaysEth[date.getDay()];
+            
+            const ethFormatted = `${dayOfWeekEth} - ${monthsEth[ethMonth] || 'መስከረም'} ${ethDay}, ${ethYear} ዓ.ም`;
+            const gregFormatted = target.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' }).toUpperCase();
+            
+            return {
+                eth: ethFormatted,
+                greg: gregFormatted,
+                combined: `${ethFormatted} (${gregFormatted})`
+            };
         }
 
         function getEthiopianWeekdayEthName(date) {
@@ -771,18 +762,19 @@
         }
 
         function getShiftForDate(divisionNum, targetDate) {
-            const start = new Date(SHIFT_START_DATE.getFullYear(), SHIFT_START_DATE.getMonth(), SHIFT_START_DATE.getDate());
+            const start = new Date(SHIFT_START_DATE_GREGORIAN.getFullYear(), SHIFT_START_DATE_GREGORIAN.getMonth(), SHIFT_START_DATE_GREGORIAN.getDate());
             const target = new Date(targetDate.getFullYear(), targetDate.getMonth(), targetDate.getDate());
             const diffDays = Math.floor((target.getTime() - start.getTime()) / (1000 * 60 * 60 * 24));
             
             const pattern = SHIFT_PATTERNS[divisionNum] || SHIFT_PATTERNS[1];
+            // Automatically loop and restart from 1 when 28 is finished using modulo arithmetic
             const patternIndex = diffDays >= 0 ? diffDays % 28 : (28 - (Math.abs(diffDays) % 28)) % 28;
             const code = pattern[patternIndex];
 
-            if (code === 'M') return { code: 'M', name: 'Morning (ጠዋት)', shortName: 'Morning (ጠዋት)', color: 'bg-gradient-to-r from-amber-300 to-yellow-400 text-amber-950 border-amber-400 font-black shadow-md' };
-            if (code === 'E') return { code: 'E', name: 'Evening (ቀን-ማታ)', shortName: 'Evening (ቀን-ማታ)', color: 'bg-gradient-to-r from-sky-300 to-blue-400 text-sky-950 border-sky-400 font-black shadow-md' };
-            if (code === 'N') return { code: 'N', name: 'Night (ለሊት)', shortName: 'Night (ለሊት)', color: 'bg-gradient-to-r from-slate-900 to-indigo-950 text-amber-300 border-slate-700 font-black shadow-md' };
-            return { code: 'O', name: 'Day Off (እረፍት)', shortName: 'Day Off (እረፍት)', color: 'bg-gradient-to-r from-emerald-300 to-teal-400 text-emerald-950 border-emerald-400 font-black shadow-md' };
+            if (code === 'M') return { code: 'M', name: 'MORNING', shortName: 'MORNING', color: 'bg-gradient-to-r from-amber-300 to-yellow-400 text-amber-950 border-amber-400 font-black shadow-md' };
+            if (code === 'E') return { code: 'E', name: 'EVENING', shortName: 'EVENING', color: 'bg-gradient-to-r from-sky-300 to-blue-400 text-sky-950 border-sky-400 font-black shadow-md' };
+            if (code === 'N') return { code: 'N', name: 'NIGHT', shortName: 'NIGHT', color: 'bg-gradient-to-r from-slate-900 to-indigo-950 text-amber-300 border-slate-700 font-black shadow-md' };
+            return { code: 'O', name: 'DAY OFF', shortName: 'DAY OFF', color: 'bg-gradient-to-r from-emerald-300 to-teal-400 text-emerald-950 border-emerald-400 font-black shadow-md' };
         }
 
         function renderMatrix() {
@@ -793,9 +785,8 @@
             
             let divisionsToShow = filterDiv === 'all' ? [1, 2, 3, 4] : [parseInt(filterDiv)];
 
-            let html = `<thead><tr class="bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-white text-[9px] sm:text-[11px] uppercase font-black tracking-wider">
-                <th class="px-2.5 py-3.5 text-center w-14 border-r border-white/10 text-cyan-400">ዑደት</th>
-                <th class="px-3.5 py-3.5 text-left border-r border-white/10 text-amber-300">የእለቱ ቀን</th>`;
+            let html = `<thead><tr class="bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-white text-[9px] sm:text-[11px] uppercase font-black tracking-wider rounded-xl overflow-hidden">
+                <th class="px-3.5 py-3.5 text-center border-r border-white/10 text-amber-300 rounded-l-xl w-1/5">CYCLE & DATE</th>`;
             
             divisionsToShow.forEach(divNum => {
                 let divTextColor = "text-white";
@@ -804,24 +795,32 @@
                 else if(divNum === 3) divTextColor = "text-fuchsia-400";
                 else if(divNum === 4) divTextColor = "text-emerald-400";
 
-                html += `<th class="px-2.5 py-3.5 text-center border-r border-white/10 last:border-r-0 ${divTextColor}">ዲቪዥን ${divNum}</th>`;
+                html += `<th class="px-2.5 py-3.5 text-center border-r border-white/10 last:border-r-0 ${divTextColor}">DIVISION ${divNum}</th>`;
             });
-            html += `</tr></thead><tbody class="divide-y divide-slate-200/80 text-[9px] sm:text-[11px]">`;
+            html += `</tr></thead><tbody class="divide-y divide-slate-100 text-[9px] sm:text-[11px]">`;
 
             for (let i = 0; i < 28; i++) {
-                const d = new Date(SHIFT_START_DATE);
+                const d = new Date(SHIFT_START_DATE_GREGORIAN);
                 d.setDate(d.getDate() + i);
                 const ethWeekday = getEthiopianWeekdayEthName(d);
                 const cycleNum = i + 1;
+                const dualDate = getDualCalendarString(d);
 
-                html += `<tr class="bg-white/90 hover:bg-white transition-all duration-200">
-                    <td class="px-2.5 py-2.5 text-center font-normal text-cyan-500 bg-slate-900/5 border-r border-slate-200/80 shadow-sm">${cycleNum}</td>
-                    <td class="px-3.5 py-2.5 text-slate-700 bg-slate-900/5 font-normal whitespace-nowrap border-r border-slate-200/80">${ethWeekday}</td>`;
+                html += `<tr class="bg-white hover:bg-slate-50/80 transition-all duration-200 uppercase">
+                    <td class="px-2 py-2.5 border-r border-slate-100 align-middle">
+                        <div class="w-full py-2 px-3 bg-gradient-to-br from-amber-100 via-sky-50 to-teal-50 border-2 border-amber-400 rounded-2xl text-slate-900 font-black text-[9px] sm:text-[10px] shadow-md space-y-1">
+                            <div class="flex items-center justify-between">
+                                <span class="px-2 py-0.5 bg-gradient-to-br from-amber-500 to-yellow-600 text-slate-950 rounded-lg text-[8px] sm:text-[9px] font-black border border-white shadow-xs">CYCLE ${cycleNum}</span>
+                                <span class="text-sky-950 font-black text-[9px]">${ethWeekday}</span>
+                            </div>
+                            <div class="text-[8px] font-extrabold text-slate-700 truncate tracking-tight">${dualDate.eth}</div>
+                        </div>
+                    </td>`;
 
                 divisionsToShow.forEach(divNum => {
                     const shift = getShiftForDate(divNum, d);
-                    html += `<td class="px-1.5 py-2.5 text-center border-r border-slate-200/60 last:border-r-0">
-                        <span class="inline-block w-full py-2 px-2 text-center rounded-xl border text-[9px] sm:text-[10px] tracking-tight ${shift.color}">${shift.shortName || shift.name}</span>
+                    html += `<td class="px-1 py-2 text-center border-r border-slate-100 last:border-r-0 align-middle">
+                        <span class="inline-flex items-center justify-center w-full min-h-[46px] py-1.5 px-1.5 text-center rounded-2xl border text-[8px] sm:text-[9px] tracking-tight uppercase leading-tight ${shift.color}">${shift.shortName || shift.name}</span>
                     </td>`;
                 });
 
@@ -840,33 +839,51 @@
             const container = document.getElementById('lookupResultContainer');
             if (!container) return;
 
-            const start = new Date(SHIFT_START_DATE.getFullYear(), SHIFT_START_DATE.getMonth(), SHIFT_START_DATE.getDate());
+            const start = new Date(SHIFT_START_DATE_GREGORIAN.getFullYear(), SHIFT_START_DATE_GREGORIAN.getMonth(), SHIFT_START_DATE_GREGORIAN.getDate());
             const target = new Date(targetDate.getFullYear(), targetDate.getMonth(), targetDate.getDate());
             const diffDays = Math.floor((target.getTime() - start.getTime()) / (1000 * 60 * 60 * 24));
-            const cycleDayNum = diffDays >= 0 ? (diffDays % 28) + 1 : "ከዑደት በፊት";
-            const ethDateStr = getEthiopianDateString(targetDate);
-            const gregDateStr = targetDate.toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric', year: 'numeric' });
+            
+            const cycleDayNum = diffDays >= 0 ? (diffDays % 28) + 1 : 1;
+            const cycleNumber = diffDays >= 0 ? Math.floor(diffDays / 28) + 1 : 1;
+
+            const dualDate = getDualCalendarString(targetDate);
 
             let html = `
-                <div class="bg-gradient-to-r from-sky-900/90 via-indigo-950 to-slate-900 text-white p-3.5 sm:p-4 rounded-2xl border border-sky-400/30 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-3">
-                    <div class="flex items-center gap-3 text-center sm:text-left">
-                        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-400 to-teal-400 text-slate-950 flex items-center justify-center font-black shadow-lg text-sm shrink-0">
-                            <i class="fa-solid fa-calendar-days"></i>
-                        </div>
-                        <div>
-                            <div class="text-[7px] uppercase font-black text-sky-300 tracking-wider">የተመረጠው እለት (Ethiopian & Gregorian)</div>
-                            <div class="text-xs sm:text-sm font-black text-white mt-0.5">${ethDateStr} | ${gregDateStr}</div>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-2 bg-white/10 backdrop-blur-md px-3.5 py-2 rounded-xl border border-white/20">
-                        <div class="text-center sm:text-right">
-                            <div class="text-[7px] uppercase font-black text-teal-300 tracking-wider">የፈረቃ ዑደት ቀን</div>
-                            <div class="text-xs sm:text-sm font-black text-amber-300">ቀን ${cycleDayNum} / 28</div>
+                <div class="bg-gradient-to-br from-slate-950 via-sky-950 to-indigo-950 text-white p-4 sm:p-5 rounded-2xl border-2 border-sky-400/40 shadow-2xl space-y-3.5 uppercase">
+                    
+                    <div class="flex items-center justify-between gap-3 pb-3 border-b border-sky-400/20">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-400 to-blue-600 text-white flex items-center justify-center font-black shadow-lg text-sm shrink-0 border border-white/40">
+                                <i class="fa-solid fa-calendar-day"></i>
+                            </div>
+                            <div>
+                                <div class="text-[8px] uppercase font-black text-sky-300 tracking-wider">SELECTED DATE (DUAL CALENDAR)</div>
+                                <div class="text-xs sm:text-sm font-black text-white mt-0.5">${dualDate.eth}</div>
+                                <div class="text-[10px] font-bold text-sky-200">${dualDate.greg}</div>
+                            </div>
                         </div>
                     </div>
+
+                    <div class="flex items-center justify-between gap-3 bg-white/10 backdrop-blur-md px-4 py-3 rounded-xl border border-amber-300/40">
+                        <div class="flex items-center gap-2.5">
+                            <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-400 to-yellow-500 text-slate-950 flex items-center justify-center font-black text-xs shadow">
+                                <i class="fa-solid fa-bolt"></i>
+                            </div>
+                            <div>
+                                <div class="text-[8px] uppercase font-black text-amber-300 tracking-wider">SHIFT CYCLE STATUS</div>
+                                <div class="text-xs sm:text-sm font-black text-amber-300">DAY ${cycleDayNum} (CYCLE ${cycleNumber})</div>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <span class="px-2.5 py-1 rounded-lg bg-amber-400/20 text-amber-300 font-black text-[9px] border border-amber-400/30">
+                                ACTIVE CYCLE
+                            </span>
+                        </div>
+                    </div>
+
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 uppercase">
             `;
 
             [1, 2, 3, 4].forEach(divNum => {
@@ -880,19 +897,19 @@
                 if(divNum === 1) { 
                     divCardBg = "from-amber-100 via-yellow-50 to-white"; 
                     edgeGlowClass = "border-amber-400 shadow-md ring-1 ring-amber-400/30 hover:scale-[1.01]";
-                    divTitle = "ዲቪዥን 1";
+                    divTitle = "DIVISION 1";
                 } else if(divNum === 2) { 
                     divCardBg = "from-sky-100 via-blue-50 to-white"; 
                     edgeGlowClass = "border-sky-400 shadow-md ring-1 ring-sky-400/30 hover:scale-[1.01]";
-                    divTitle = "ዲቪዥን 2";
+                    divTitle = "DIVISION 2";
                 } else if(divNum === 3) { 
                     divCardBg = "from-purple-100 via-fuchsia-50 to-white"; 
                     edgeGlowClass = "border-purple-400 shadow-md ring-1 ring-purple-400/30 hover:scale-[1.01]";
-                    divTitle = "ዲቪዥን 3";
+                    divTitle = "DIVISION 3";
                 } else { 
                     divCardBg = "from-emerald-100 via-teal-50 to-white"; 
                     edgeGlowClass = "border-emerald-400 shadow-md ring-1 ring-emerald-400/30 hover:scale-[1.01]";
-                    divTitle = "ዲቪዥን 4";
+                    divTitle = "DIVISION 4";
                 }
 
                 if(shift.code === 'M') { iconClass = "fa-sun"; badgeGradient = "from-amber-400 to-yellow-500 text-amber-950 border-amber-500"; }
@@ -901,7 +918,7 @@
                 else { iconClass = "fa-mug-hot"; badgeGradient = "from-emerald-500 to-teal-600 text-white border-emerald-400"; }
 
                 html += `
-                    <div class="p-3.5 rounded-2xl border ${edgeGlowClass} bg-gradient-to-br ${divCardBg} flex items-center justify-between gap-3 transition-all duration-300">
+                    <div class="p-3.5 rounded-2xl border ${edgeGlowClass} bg-gradient-to-br ${divCardBg} flex items-center justify-between gap-3 transition-all duration-300 uppercase">
                         <div class="flex items-center gap-2.5">
                             <div class="w-9 h-9 rounded-xl bg-gradient-to-br ${badgeGradient} flex items-center justify-center text-xs font-black shadow-md shrink-0 border">
                                 <i class="fa-solid ${iconClass}"></i>
@@ -923,25 +940,6 @@
             container.innerHTML = html;
         }
 
-        function handleAdminLogin(e) {
-            e.preventDefault();
-            const passEl = document.getElementById('adminPasswordInput');
-            if(!passEl) return;
-            const pass = passEl.value;
-            if(pass === systemSettings.adminPass) {
-                isAdminLoggedIn = true;
-                const lockedView = document.getElementById('adminLockedView');
-                const unlockedView = document.getElementById('adminUnlockedView');
-                if(lockedView) lockedView.classList.add('hidden');
-                if(unlockedView) unlockedView.classList.remove('hidden');
-                renderOnlineUsersTable();
-                loadDivisionPatternEditor();
-                showMsgBox("አስተዳዳሪ ገብቷል!");
-            } else {
-                showMsgBox("የተሳሳተ የአስተዳዳሪ password!", "error");
-            }
-        }
-
         function loadDivisionPatternEditor() {
             const divSelect = document.getElementById('adminDivSelect');
             const grid = document.getElementById('adminPatternGrid');
@@ -952,14 +950,15 @@
 
             let html = '';
             for(let i=0; i<28; i++) {
+                const currentCode = pattern[i];
                 html += `
-                    <div class="flex flex-col bg-white p-2.5 rounded-xl border border-amber-200 shadow-sm gap-1.5">
-                        <span class="text-[9px] font-black text-slate-700">ቀን ${i+1} (Day ${i+1})</span>
-                        <select id="pattern_day_${i}" class="w-full px-2 py-1.5 bg-amber-50 border border-amber-300 rounded-lg text-[10px] font-black text-amber-950 focus:outline-none focus:ring-2 focus:ring-amber-500 cursor-pointer">
-                            <option value="M" ${pattern[i] === 'M' ? 'selected' : ''}>Morning (ጠዋት)</option>
-                            <option value="E" ${pattern[i] === 'E' ? 'selected' : ''}>Evening (ቀን-ማታ)</option>
-                            <option value="N" ${pattern[i] === 'N' ? 'selected' : ''}>Night (ለሊት)</option>
-                            <option value="O" ${pattern[i] === 'O' ? 'selected' : ''}>Day Off (እረፍት)</option>
+                    <div class="flex flex-col bg-white p-2.5 rounded-xl border border-amber-200 shadow-sm gap-1.5 uppercase">
+                        <span class="text-[9px] font-black text-amber-950">DAY ${i+1}</span>
+                        <select id="pattern_day_${i}" class="w-full px-2 py-1.5 bg-amber-50 border border-amber-300 rounded-lg text-[10px] font-black text-amber-950 focus:outline-none focus:ring-2 focus:ring-amber-500 cursor-pointer uppercase">
+                            <option value="M" ${currentCode === 'M' ? 'selected' : ''}>MORNING</option>
+                            <option value="E" ${currentCode === 'E' ? 'selected' : ''}>EVENING</option>
+                            <option value="N" ${currentCode === 'N' ? 'selected' : ''}>NIGHT</option>
+                            <option value="O" ${currentCode === 'O' ? 'selected' : ''}>DAY OFF</option>
                         </select>
                     </div>
                 `;
@@ -981,7 +980,7 @@
             SHIFT_PATTERNS[divNum] = newPattern;
             localStorage.setItem('shift_custom_patterns', JSON.stringify(SHIFT_PATTERNS));
             renderMatrix();
-            showMsgBox(`ዲቪዥን ${divNum} የፈረቃ ዑደት በተሳካ ሁኔታ ተዘምኗል!`);
+            showMsgBox(`DIVISION ${divNum} SHIFT CYCLE SUCCESSFULLY UPDATED!`);
         }
 
         function lockAdmin() {
@@ -992,28 +991,14 @@
             if(unlockedView) unlockedView.classList.add('hidden');
             const passInput = document.getElementById('adminPasswordInput');
             if(passInput) passInput.value = "";
-            showMsgBox("አስተዳዳሪው ተቆልፏል", "info");
-        }
-
-        function handleDevPhotoFileUpload(e) {
-            const file = e.target.files[0];
-            if (!file) return;
-            const reader = new FileReader();
-            reader.onload = function(evt) {
-                systemSettings.directorPhoto = evt.target.result;
-            };
-            reader.readAsDataURL(file);
+            showMsgBox("ADMIN PANEL LOCKED", "info");
         }
 
         function updateDeveloperAndPasswords(e) {
             e.preventDefault();
-            const urlInput = document.getElementById('settingDevPhotoUrl');
             const apEl = document.getElementById('settingAdminPass');
             const spEl = document.getElementById('settingSitePass');
 
-            if (urlInput && urlInput.value.trim() !== '') {
-                systemSettings.directorPhoto = urlInput.value.trim();
-            }
             if (apEl && apEl.value.trim() !== '') {
                 systemSettings.adminPass = apEl.value.trim();
             }
@@ -1023,7 +1008,7 @@
 
             localStorage.setItem('shift_system_settings', JSON.stringify(systemSettings));
             updateImagesOnUI();
-            showMsgBox("የዲቨሎፐር ፎቶ እና ሚስጥራዊ ቁጥሮች በተሳካ ሁኔታ ተዘምነዋል!");
+            showMsgBox("PASSWORDS SUCCESSFULLY UPDATED!");
         }
 
         function showMsgBox(text, type = "success") {
@@ -1032,7 +1017,7 @@
             const icon = document.getElementById('msgBoxIcon');
             if(!box || !txt || !icon) return;
 
-            txt.innerText = text;
+            txt.innerText = text.toUpperCase();
             if(type === "success") {
                 icon.innerHTML = '<i class="fa-solid fa-circle-check text-emerald-400"></i>';
             } else if(type === "error") {
