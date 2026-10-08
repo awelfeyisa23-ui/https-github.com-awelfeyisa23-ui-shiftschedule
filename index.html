@@ -35,12 +35,12 @@
                         <label class="block text-[10px] font-black text-amber-950 uppercase"><i class="fa-solid fa-user text-amber-600"></i>NAME</label>
                         <div class="relative">
                             <i class="fa-solid fa-id-card absolute left-4 top-3.5 text-amber-600 text-xs"></i>
-                            <input type="text" id="staffNameInput" placeholder="INSERT NAME" class="w-full pl-10 pr-4 py-3 bg-white/95 backdrop-blur-md border border-amber-300 rounded-2xl font-black text-xs text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 shadow-inner uppercase" required>
+                            <input type="text" id="staffNameInput" placeholder="INSERT NAME" class="w-full pl-10 pr-4 py-3 bg-white/95 backdrop-blur-md border border-amber-300 rounded-2xl font-black text-xs text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 shadow-inner" required>
                         </div>
                     </div>
 
                     <div class="space-y-1">
-                        <label class="block text-[10px] font-black text-amber-950"><i class="fa-solid fa-key text-amber-600"></i>PASSWORD</label>
+                        <label class="block text-[10px] font-black text-amber-950 uppercase"><i class="fa-solid fa-key text-amber-600"></i>PASSWORD</label>
                         <div class="relative">
                             <i class="fa-solid fa-key absolute left-4 top-3.5 text-amber-600 text-xs"></i>
                             <input type="password" id="sitePasswordInput" placeholder="INSERT PASSWORD" class="w-full pl-10 pr-4 py-3 bg-white/95 backdrop-blur-md border border-amber-300 rounded-2xl font-black text-xs tracking-widest text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 shadow-inner" required>
@@ -526,7 +526,7 @@
 
             const now = new Date().toLocaleTimeString();
             const nowTimestamp = new Date().getTime();
-            const displayName = currentStaffName ? currentStaffName.toUpperCase() : ('VISITOR (' + mySessionId + ')');
+            const displayName = currentStaffName ? currentStaffName : ('VISITOR (' + mySessionId + ')');
 
             const twentyFourHoursMs = 24 * 60 * 60 * 1000;
             onlineList = onlineList.filter(user => {
@@ -654,7 +654,7 @@
             if(!passInput || !nameInput) return;
 
             if(passInput.value === systemSettings.sitePass) {
-                currentStaffName = nameInput.value.trim().toUpperCase();
+                currentStaffName = nameInput.value.trim();
                 localStorage.setItem('shift_staff_name', currentStaffName);
 
                 if(rememberBox && rememberBox.checked) {
